@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/executor/adaptive_executor.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/executor</a> - adaptive_executor.c<span style="font-size: 80%;"> (<a href="adaptive_executor.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">874</td>
+            <td class="headerCovTableEntry">1332</td>
+            <td class="headerCovTableEntryLo">65.6 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">59</td>
+            <td class="headerCovTableEntry">76</td>
+            <td class="headerCovTableEntryMed">77.6 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="adaptive_executor.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2583">AvgConnectionEstablishmentTime</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2542">AvgTaskExecutionTimeApproximation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4477">CanFailoverPlacementExecutionToLocalExecution</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1023">CreateDefaultExecutionParams</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1067">ExecuteTaskListIntoTupleDest</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1049">ExecuteTaskListIntoTupleDestWithParam</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#998">ExecuteTaskListOutsideTransaction</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2860">MarkEstablishingSessionsTimedOut</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4587">PlacementExecutionReady</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2093">RebuildWaitEventSet</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4538">ScheduleNextPlacementExecution</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1861">SequentialRunDistributedExecution</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#5009">SetLocalForceMaxQueryParallelization</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4991">UnclaimAllSessionConnections</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1613">WorkerPoolCompare</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4224">WorkerPoolFailed</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4306">WorkerSessionFailed</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#978">ExecuteTaskList</a></td>
+              <td class="coverFnHi">52</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#955">ExecuteUtilityTaskListExtended</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#936">ExecuteUtilityTaskList</a></td>
+              <td class="coverFnHi">123</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3373">Activate2PCIfModifyingTransactionExpandsToNewNode</a></td>
+              <td class="coverFnHi">169</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3396">TransactionModifiedDistributedTable</a></td>
+              <td class="coverFnHi">169</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1142">CreateBasicExecutionParams</a></td>
+              <td class="coverFnHi">253</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1085">ExecuteTaskListExtended</a></td>
+              <td class="coverFnHi">253</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2108">AddLatchWaitEventToExecution</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4750">BuildWaitEventSet</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2619">OpenNewConnections</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2197">ProcessWaitEventsForSocketClosed</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2123">RebuildWaitEventSetForSessions</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1835">RemoteSocketClosedForAnySession</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2489">UsingExistingSessionsCheaperThanEstablishingNewConnections</a></td>
+              <td class="coverFnHi">398</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4842">GetEventSetSize</a></td>
+              <td class="coverFnHi">796</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4795">AddSessionToWaitEventSet</a></td>
+              <td class="coverFnHi">1418</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1763">FindOrCreateWorkerSession</a></td>
+              <td class="coverFnHi">1418</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3318">HandleMultiConnectionSuccess</a></td>
+              <td class="coverFnHi">1418</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1668">ExecutionOrderForTask</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1719">FindOrCreateWorkerPool</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2987">MicrosecondsBetweenTimestamps</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4343">PlacementExecutionDone</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1630">SetAttributeInputMetadata</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3841">StartPlacementExecutionOnSession</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4663">TaskExecutionStateMachine</a></td>
+              <td class="coverFnHi">1752</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3991">ReceiveResults</a></td>
+              <td class="coverFnHi">1952</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3911">SendNextQuery</a></td>
+              <td class="coverFnHi">1952</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3787">PopAssignedPlacementExecution</a></td>
+              <td class="coverFnHi">2198</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3759">PopPlacementExecution</a></td>
+              <td class="coverFnHi">2198</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3809">PopUnassignedPlacementExecution</a></td>
+              <td class="coverFnHi">2198</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3414">TransactionStateMachine</a></td>
+              <td class="coverFnHi">3055</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2767">CheckConnectionTimeout</a></td>
+              <td class="coverFnHi">3373</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2025">ProcessSessionsWithFailedWaitEventSetOperations</a></td>
+              <td class="coverFnHi">3766</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4854">RebuildWaitEventSetFlags</a></td>
+              <td class="coverFnHi">3766</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2384">CalculateNewConnectionCount</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2311">HasAnyConnectionFailure</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2231">ManageWorkerPool</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2908">NextEventTimeout</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2144">ProcessWaitEvents</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2341">ShouldWaitForSlowStart</a></td>
+              <td class="coverFnHi">3771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3283">HasUnfinishedTaskForSession</a></td>
+              <td class="coverFnHi">4027</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2999">ConnectionStateMachine</a></td>
+              <td class="coverFnHi">5973</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2975">MillisecondsBetweenTimestamps</a></td>
+              <td class="coverFnHi">7144</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2882">UsableConnectionCount</a></td>
+              <td class="coverFnHi">7542</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#917">RunLocalExecution</a></td>
+              <td class="coverFnHi">8269</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#774">AdaptiveExecutor</a></td>
+              <td class="coverFnHi">8520</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#741">AdaptiveExecutorPreExecutorRun</a></td>
+              <td class="coverFnHi">8528</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3697">CheckConnectionReady</a></td>
+              <td class="coverFnHi">8649</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1396">DistributedExecutionModifiesDatabase</a></td>
+              <td class="coverFnHi">8769</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1408">FinishDistributedExecution</a></td>
+              <td class="coverFnHi">8769</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1425">AssignTasksToConnectionsOrWorkerPool</a></td>
+              <td class="coverFnHi">8771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4904">CleanUpSessions</a></td>
+              <td class="coverFnHi">8771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1168">CreateDistributedExecution</a></td>
+              <td class="coverFnHi">8771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1904">RunDistributedExecution</a></td>
+              <td class="coverFnHi">8771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1334">StartDistributedExecution</a></td>
+              <td class="coverFnHi">8771</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#1262">DecideTransactionPropertiesForTaskList</a></td>
+              <td class="coverFnHi">8773</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#4773">FreeExecutionWaitEvents</a></td>
+              <td class="coverFnHi">9169</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#2065">HasIncompleteConnectionEstablishment</a></td>
+              <td class="coverFnHi">9746</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="adaptive_executor.c.gcov.html#3668">UpdateConnectionWaitFlags</a></td>
+              <td class="coverFnHi">18161</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/columnar/columnar_tableam.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">src/backend/columnar</a> - columnar_tableam.c<span style="font-size: 80%;"> (<a href="columnar_tableam.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">124</td>
+            <td class="headerCovTableEntry">874</td>
+            <td class="headerCovTableEntryLo">14.2 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">92</td>
+            <td class="headerCovTableEntryLo">17.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="columnar_tableam.c.func-sort-c.html"><img src="../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2966">AvailableExtensionVersionColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2861">CheckAvailableVersionColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2473">CheckCitusColumnarAlterExtensionStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2440">CheckCitusColumnarCreateExtensionStmt</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2833">CheckCitusColumnarVersion</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2894">CheckInstalledVersionColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2772">CitusColumnarHasBeenLoaded</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2795">CitusColumnarHasBeenLoadedInternal</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2622">ColumnarCheckLogicalReplication</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1630">ColumnarGetHighestItemPointer</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1606">ColumnarGetNumberOfVirtualBlocks</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2196">ColumnarProcessAlterTable</a></td>
+              <td class="coverFnHi">324</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2260">ColumnarProcessUtility</a></td>
+              <td class="coverFnHi">8774</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1761">ColumnarReadMissingRowsIntoIndex</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1654">ColumnarReadRowsIntoIndex</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1582">ColumnarReportTotalVirtualBlocks</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2048">ColumnarScanChunkGroupsFiltered</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2068">ColumnarSlotCopyHeapTuple</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1987">ColumnarSubXactCallback</a></td>
+              <td class="coverFnHi">909</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2404">ColumnarSupportsIndexAM</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2171">ColumnarTableAMObjectAccessHook</a></td>
+              <td class="coverFnHi">262835</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2089">ColumnarTableDropHook</a></td>
+              <td class="coverFnHi">1356</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1035">ColumnarTableTupleCount</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2124">ColumnarTriggerCreateHook</a></td>
+              <td class="coverFnHi">183</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1956">ColumnarXactCallback</a></td>
+              <td class="coverFnHi">20691</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1395">ConditionalLockRelationWithTimeout</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#257">CreateColumnarScanMemoryContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#391">ErrorIfInvalidRowNumber</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2556">GetColumnarTableAmRoutine</a></td>
+              <td class="coverFnHi">62833</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#3081">GetExtensionOption</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#3029">InstalledExtensionVersionColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2416">IsColumnarTableAmTable</a></td>
+              <td class="coverFnHi">32221</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1200">LogRelationStats</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2923">MajorVersionsCompatibleColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1007">NeededColumnsList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1316">TruncateColumnar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1852">TupleSortSkipSmallerItemPointers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2684">alter_columnar_table_reset</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2667">alter_columnar_table_set</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#180">columnar_beginscan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#203">columnar_beginscan_extended</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#287">columnar_endscan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1922">columnar_estimate_rel_size</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#632">columnar_fetch_row_version</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#837">columnar_finish_bulk_insert</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#642">columnar_get_latest_tid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#320">columnar_getnextslot</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2564">columnar_handler</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1465">columnar_index_build_range_scan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#669">columnar_index_delete_tuples</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#432">columnar_index_fetch_begin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#467">columnar_index_fetch_end</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#460">columnar_index_fetch_reset</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#481">columnar_index_fetch_tuple</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1712">columnar_index_validate_scan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#767">columnar_multi_insert</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#411">columnar_parallelscan_estimate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#418">columnar_parallelscan_initialize</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#425">columnar_parallelscan_reinitialize</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#915">columnar_relation_copy_data</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#929">columnar_relation_copy_for_cluster</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1913">columnar_relation_needs_toast_table</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#890">columnar_relation_nontransactional_truncate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#846">columnar_relation_set_new_filelocator</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1889">columnar_relation_size</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#304">columnar_rescan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1425">columnar_scan_analyze_next_block</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1439">columnar_scan_analyze_next_tuple</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1941">columnar_scan_sample_next_block</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1948">columnar_scan_sample_next_tuple</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#173">columnar_slot_callbacks</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2015">columnar_tableam_init</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#759">columnar_tuple_complete_speculative</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#808">columnar_tuple_delete</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#717">columnar_tuple_insert</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#750">columnar_tuple_insert_speculative</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#827">columnar_tuple_lock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#657">columnar_tuple_satisfies_snapshot</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#650">columnar_tuple_tid_valid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#817">columnar_tuple_update</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#1056">columnar_vacuum_rel</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2578">detoast_values</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2738">downgrade_columnar_storage</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#269">init_columnar_read_state</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2682">pg_finfo_alter_columnar_table_reset</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2665">pg_finfo_alter_columnar_table_set</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2562">pg_finfo_columnar_handler</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2736">pg_finfo_downgrade_columnar_storage</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2700">pg_finfo_upgrade_columnar_storage</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#360">row_number_to_tid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#376">tid_to_row_number</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="columnar_tableam.c.gcov.html#2702">upgrade_columnar_storage</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

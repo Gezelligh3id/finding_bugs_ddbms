@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/relation_restriction_equivalence.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - relation_restriction_equivalence.c<span style="font-size: 80%;"> (<a href="relation_restriction_equivalence.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">509</td>
+            <td class="headerCovTableEntry">666</td>
+            <td class="headerCovTableEntryMed">76.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">42</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryMed">87.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="relation_restriction_equivalence.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1661">AddAttributeClassToAttributeClassList</a></td>
+              <td class="coverFnHi">406339</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1567">AddRteRelationToAttributeEquivalenceClass</a></td>
+              <td class="coverFnHi">668160</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1268">AddRteSubqueryToAttributeEquivalenceClass</a></td>
+              <td class="coverFnHi">5509</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1224">AddToAttributeEquivalenceClass</a></td>
+              <td class="coverFnHi">747918</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1416">AddUnionAllSetOperationsToAttributeEquivalenceClass</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1539">AddUnionSetOperationsToAttributeEquivalenceClass</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1996">AllDistributedRelationsInListColocated</a></td>
+              <td class="coverFnHi">59</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1977">AllDistributedRelationsInRTEListColocated</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1956">AllDistributedRelationsInRestrictionContextColocated</a></td>
+              <td class="coverFnHi">59</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#181">AllDistributionKeysInQueryAreEqual</a></td>
+              <td class="coverFnHi">8082</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1630">AttributeClassContainsAttributeClassMember</a></td>
+              <td class="coverFnHi">1470</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#788">AttributeEquivalenceClassForEquivalenceClass</a></td>
+              <td class="coverFnHi">81059</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1706">AttributeEquivalencesAreEqual</a></td>
+              <td class="coverFnHi">8764</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#567">ContainsMultipleDistributedRelations</a></td>
+              <td class="coverFnHi">11407</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1768">ContainsUnionSubquery</a></td>
+              <td class="coverFnHi">3047</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#242">ContextContainsAppendRelation</a></td>
+              <td class="coverFnHi">2300</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#219">ContextContainsLocalRelation</a></td>
+              <td class="coverFnHi">16898</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2046">DistributedRelationIdList</a></td>
+              <td class="coverFnHi">618</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#672">EquivalenceListContainsRelationsEquality</a></td>
+              <td class="coverFnHi">2593</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2311">FilterJoinRestrictionContext</a></td>
+              <td class="coverFnHi">6200</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2080">FilterPlannerRestrictionForQuery</a></td>
+              <td class="coverFnHi">6200</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2274">FilterRelationRestrictionContext</a></td>
+              <td class="coverFnHi">11371</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1898">FindQueryContainingRTEIdentity</a></td>
+              <td class="coverFnHi">64</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1913">FindQueryContainingRTEIdentityInternal</a></td>
+              <td class="coverFnHi">5676</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#441">FindUnionAllVar</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#604">GenerateAllAttributeEquivalences</a></td>
+              <td class="coverFnHi">2943</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1123">GenerateAttributeEquivalencesForJoinRestrictions</a></td>
+              <td class="coverFnHi">3033</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#740">GenerateAttributeEquivalencesForRelationRestrictions</a></td>
+              <td class="coverFnHi">3033</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#949">GenerateCommonEquivalence</a></td>
+              <td class="coverFnHi">2593</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1045">GenerateEquivalenceClassForRelationRestriction</a></td>
+              <td class="coverFnHi">2593</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2130">GetRestrictInfoListForRelation</a></td>
+              <td class="coverFnHi">1692</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1354">GetTargetSubquery</a></td>
+              <td class="coverFnHi">5509</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#863">GetVarFromAssignedParam</a></td>
+              <td class="coverFnHi">22</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2261">HasPlaceHolderVar</a></td>
+              <td class="coverFnHi">102</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2246">IsNotSafeRestrictionToRecursivelyPlan</a></td>
+              <td class="coverFnHi">102</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1391">IsRelOptOuterJoin</a></td>
+              <td class="coverFnHi">749790</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1088">ListConcatUniqueAttributeClassMemberLists</a></td>
+              <td class="coverFnHi">272</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1512">ParentCountPriorToAppendRel</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#1822">PartitionKeyForRTEIdentityInQuery</a></td>
+              <td class="coverFnHi">64</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2407">QueryRteIdentities</a></td>
+              <td class="coverFnHi">6200</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2353">RangeTableArrayContainsAnyRTEIdentities</a></td>
+              <td class="coverFnHi">710222</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#400">RangeTableOffsetCompat</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#2218">RelationRestrictionForRelation</a></td>
+              <td class="coverFnHi">5171</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#512">RestrictionEquivalenceForPartitionKeys</a></td>
+              <td class="coverFnHi">8816</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#544">RestrictionEquivalenceForPartitionKeysViaEquivalences</a></td>
+              <td class="coverFnHi">2591</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#280">SafeToPushdownUnionSubquery</a></td>
+              <td class="coverFnHi">90</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#900">SearchPlannerParamList</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="relation_restriction_equivalence.c.gcov.html#634">UniqueRelationCount</a></td>
+              <td class="coverFnHi">23807</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

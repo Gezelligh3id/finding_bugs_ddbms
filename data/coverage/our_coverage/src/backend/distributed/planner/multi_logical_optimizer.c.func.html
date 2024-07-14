@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/multi_logical_optimizer.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - multi_logical_optimizer.c<span style="font-size: 80%;"> (<a href="multi_logical_optimizer.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">931</td>
+            <td class="headerCovTableEntry">1758</td>
+            <td class="headerCovTableEntryLo">53.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntryLo">74.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="multi_logical_optimizer.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2302">AddTypeConversion</a></td>
+              <td class="coverFnHi">138</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#687">AddressProjectSpecialConditions</a></td>
+              <td class="coverFnHi">134</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3482">AggregateArgumentType</a></td>
+              <td class="coverFnHi">8</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4212">AggregateDistinctColumn</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3516">AggregateEnabledCustom</a></td>
+              <td class="coverFnHi">82</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3560">AggregateFunctionOid</a></td>
+              <td class="coverFnHi">32</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#493">AndSelectNode</a></td>
+              <td class="coverFnHi">24</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2972">AppendTargetEntryToGroupClause</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1293">ApplyExtendedOpNodes</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2793">BuildOrderByLimitReference</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#781">CanPullUp</a></td>
+              <td class="coverFnHi">2520</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#754">CanPushDown</a></td>
+              <td class="coverFnHi">4816</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3856">CanPushDownExpression</a></td>
+              <td class="coverFnHi">13304</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4843">CanPushDownLimitApproximate</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3615">CitusFunctionOidWithSignature</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#821">Commutative</a></td>
+              <td class="coverFnHi">7184</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3653">CoordCombineAggOid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3710">CountDistinctHashFunctionName</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3746">CountDistinctStorageSize</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3686">CreateSortGroupClause</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3918">DeferErrorIfHasNonDistributableAggregates</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4056">DeferErrorIfUnsupportedAggregateDistinct</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3993">DeferErrorIfUnsupportedArrayAggregate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4021">DeferErrorIfUnsupportedJsonAggregate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#876">Distributive</a></td>
+              <td class="coverFnHi">56</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2862">ExpandWorkerTargetEntry</a></td>
+              <td class="coverFnHi">6530</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4628">ExtractQueryWalker</a></td>
+              <td class="coverFnHi">73743</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#935">Factorizable</a></td>
+              <td class="coverFnHi">96</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4447">FindReferencedTableColumn</a></td>
+              <td class="coverFnHi">2804</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3499">FirstAggregateArgument</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#995">GenerateLeftNode</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1028">GenerateNode</a></td>
+              <td class="coverFnHi">160</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1010">GenerateRightNode</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2928">GenerateWorkerTargetEntry</a></td>
+              <td class="coverFnHi">6518</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3374">GetAggregateType</a></td>
+              <td class="coverFnHi">208</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2899">GetNextSortGroupRef</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4379">GroupTargetEntryList</a></td>
+              <td class="coverFnHi">518</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4318">GroupedByColumn</a></td>
+              <td class="coverFnHi">2232</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3808">HasNonDistributableAggregates</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4874">HasOrderByAggregate</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4940">HasOrderByComplexExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4972">HasOrderByHllType</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4900">HasOrderByNonCommutativeAggregate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#5062">IsGroupBySubsetOfDistinct</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4616">IsIndexInRange</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4409">IsPartitionColumn</a></td>
+              <td class="coverFnHi">1399</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3768">MakeIntegerConst</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3786">MakeIntegerConstInt64</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1586">MasterAggregateExpression</a></td>
+              <td class="coverFnHi">138</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1518">MasterAggregateMutator</a></td>
+              <td class="coverFnHi">302</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2240">MasterAverageExpression</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1411">MasterExtendedOpNode</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#343">MultiLogicalPlanOptimize</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#538">OrSelectClauseList</a></td>
+              <td class="coverFnHi">48</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#517">OrSelectNode</a></td>
+              <td class="coverFnHi">24</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1258">ParentSetNewChild</a></td>
+              <td class="coverFnHi">2738</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1168">PlaceBinaryNodeLeftChild</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1186">PlaceBinaryNodeRightChild</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1153">PlaceUnaryNodeChild</a></td>
+              <td class="coverFnHi">60</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2642">ProcessDistinctClauseForWorkerQuery</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2572">ProcessHavingClauseForWorkerQuery</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2769">ProcessLimitOrderByForWorkerQuery</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2516">ProcessTargetListForWorkerQuery</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2726">ProcessWindowFunctionPullUpForWorkerQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2709">ProcessWindowFunctionsForWorkerQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#656">PullUpCollectLoop</a></td>
+              <td class="coverFnHi">2310</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1214">PullUpUnaryNode</a></td>
+              <td class="coverFnHi">210</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1131">PushDownBelowUnaryChild</a></td>
+              <td class="coverFnHi">2544</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#565">PushDownNodeLoop</a></td>
+              <td class="coverFnHi">2386</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1200">RemoveUnaryNode</a></td>
+              <td class="coverFnHi">98</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#964">SelectClauseTableIdList</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#5009">ShouldProcessDistinctOrderAndLimitForWorker</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4354">SubqueryMultiTableList</a></td>
+              <td class="coverFnHi">2820</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1073">TableIdListColumns</a></td>
+              <td class="coverFnHi">156</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1099">TableIdListSelectClauses</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4246">TablePartitioningSupportsDistinct</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2821">TargetListHasAggregates</a></td>
+              <td class="coverFnHi">4384</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#1326">TransformSubqueryNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3670">TypeOid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3053">WorkerAggregateExpressionList</a></td>
+              <td class="coverFnHi">138</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3004">WorkerAggregateWalker</a></td>
+              <td class="coverFnHi">270</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#5046">WorkerColumnName</a></td>
+              <td class="coverFnHi">18</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#2332">WorkerExtendedOpNode</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4673">WorkerLimitCount</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#3638">WorkerPartialAggOid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_optimizer.c.gcov.html#4784">WorkerSortClauseList</a></td>
+              <td class="coverFnHi">2182</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

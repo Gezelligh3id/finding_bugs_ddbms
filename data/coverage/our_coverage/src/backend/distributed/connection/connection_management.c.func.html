@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/connection/connection_management.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/connection</a> - connection_management.c<span style="font-size: 80%;"> (<a href="connection_management.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">329</td>
+            <td class="headerCovTableEntry">472</td>
+            <td class="headerCovTableEntryLo">69.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntry">41</td>
+            <td class="headerCovTableEntryMed">80.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="connection_management.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#159">AfterXactConnectionHandling</a></td>
+              <td class="coverFnHi">1638</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1413">AfterXactHostConnectionHandling</a></td>
+              <td class="coverFnHi">1633</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1610">CitusAddWaitEventSetToSet</a></td>
+              <td class="coverFnHi">4744</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1657">CitusModifyWaitEvent</a></td>
+              <td class="coverFnHi">15048</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1181">CitusPQFinish</a></td>
+              <td class="coverFnHi">1382</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1228">ClaimConnectionExclusively</a></td>
+              <td class="coverFnHi">2064</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#575">CloseAllConnectionsAfterTransaction</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#683">CloseConnection</a></td>
+              <td class="coverFnHi">408</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#646">CloseNodeConnectionsAfterTransaction</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1158">CloseNotReadyMultiConnectionStates</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#613">ConnectionAvailableToNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1263">ConnectionHashCompare</a></td>
+              <td class="coverFnHi">5807</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1248">ConnectionHashHash</a></td>
+              <td class="coverFnHi">5873</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#548">ErrorIfMultipleMetadataConnectionExists</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#840">EventSetSizeForConnectionList</a></td>
+              <td class="coverFnHi">7178</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#444">FindAvailableConnection</a></td>
+              <td class="coverFnHi">3675</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1327">FindOrCreateConnParamsEntry</a></td>
+              <td class="coverFnHi">1382</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1204">FinishConnectionEstablishment</a></td>
+              <td class="coverFnHi">601</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#950">FinishConnectionListEstablishment</a></td>
+              <td class="coverFnHi">5951</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1215">ForceConnectionCloseAtTransactionEnd</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1368">FreeConnParamsHashEntryFields</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#250">GetConnectionForLocalQueriesOutsideTransaction</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#191">GetNodeConnection</a></td>
+              <td class="coverFnHi">409</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#225">GetNodeUserDatabaseConnection</a></td>
+              <td class="coverFnHi">409</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#96">InitializeConnectionManagement</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#136">InvalidateConnParamsHashEntries</a></td>
+              <td class="coverFnHi">171</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1584">MarkConnectionConnected</a></td>
+              <td class="coverFnHi">1827</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1128">MillisecondsPassedSince</a></td>
+              <td class="coverFnHi">2833</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1143">MillisecondsToTimeout</a></td>
+              <td class="coverFnHi">2833</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#929">MultiConnectionStateEventMask</a></td>
+              <td class="coverFnHi">1227</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#786">MultiConnectionStatePoll</a></td>
+              <td class="coverFnHi">3483</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1561">RemoteTransactionIdle</a></td>
+              <td class="coverFnHi">1593</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1518">RestartConnection</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1481">ShouldShutdownConnection</a></td>
+              <td class="coverFnHi">2565</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#728">ShutdownAllConnections</a></td>
+              <td class="coverFnHi">448</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#765">ShutdownConnection</a></td>
+              <td class="coverFnHi">974</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1288">StartConnectionEstablishment</a></td>
+              <td class="coverFnHi">1382</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#204">StartNodeConnection</a></td>
+              <td class="coverFnHi">2064</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#273">StartNodeUserDatabaseConnection</a></td>
+              <td class="coverFnHi">4083</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#1241">UnclaimConnection</a></td>
+              <td class="coverFnHi">5075</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="connection_management.c.gcov.html#857">WaitEventSetFromMultiConnectionStates</a></td>
+              <td class="coverFnHi">1227</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

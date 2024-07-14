@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/distributed_planner.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - distributed_planner.c<span style="font-size: 80%;"> (<a href="distributed_planner.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">167</td>
+            <td class="headerCovTableEntry">763</td>
+            <td class="headerCovTableEntryLo">21.9 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 15:56:47</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">56</td>
+            <td class="headerCovTableEntryLo">28.6 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="distributed_planner.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#470">AdjustPartitioningForDistributedPlanning</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2201">AdjustReadIntermediateResultArrayCost</a></td>
+              <td class="coverFnHi">6255</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2151">AdjustReadIntermediateResultCost</a></td>
+              <td class="coverFnHi">6255</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2258">AdjustReadIntermediateResultsCostInternal</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#430">AssignRTEIdentities</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#529">AssignRTEIdentity</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1665">BlessRecordExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1781">BlessRecordExpressionList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1853">CheckNodeCopyAndSerialization</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1832">CheckNodeIsDumpable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1501">ConcatenateRTablesAndPerminfos</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2593">ContainsSingleShardTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2384">CopyPlanParamList</a></td>
+              <td class="coverFnHi">4603</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2411">CreateAndPushPlannerRestrictionContext</a></td>
+              <td class="coverFnHi">3473</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#972">CreateDistributedPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#715">CreateDistributedPlannedStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2469">CurrentPlannerRestrictionContext</a></td>
+              <td class="coverFnHi">7567</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1244">DeferErrorIfPartitionTableNotSingleReplicated</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#699">DissuadePlannerFromUsingPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1227">EnsurePartitionTableNotReplicated</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#330">ExtractRangeTableEntryList</a></td>
+              <td class="coverFnHi">6376</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1486">FinalizeNonRouterPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1383">FinalizePlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1537">FinalizeRouterPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2124">FindTargetAppendRelInfo</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1363">GetDistributedPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#573">GetOriginalInh</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#584">GetQueryLockMode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#539">GetRTEIdentity</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2617">GetRTEListProperties</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2605">GetRTEListPropertiesForQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#917">GetRouterPlanType</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2526">HasUnresolvedExternParamsWalker</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#828">InlineCtesAndCreateDistributedPlannedStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#606">IsModifyCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#624">IsMultiTaskPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#377">ListContainsDistributedTableRTE</a></td>
+              <td class="coverFnHi">5821</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#349">NeedsDistributedPlanning</a></td>
+              <td class="coverFnHi">3458</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2354">OuterPlanParamsList</a></td>
+              <td class="coverFnHi">5403</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#676">PlanDistributedStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#642">PlanFastPathDistributedStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2492">PopPlannerRestrictionContext</a></td>
+              <td class="coverFnHi">3473</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#509">RTEWentThroughAdjustPartitioning</a></td>
+              <td class="coverFnHi">5196</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1812">RemoteScanRangeTableEntry</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2503">ResetPlannerRestrictionContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1273">ResolveExternalParams</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2096">TranslatedVars</a></td>
+              <td class="coverFnHi">5403</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2443">TranslatedVarsForRteIdentity</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#862">TryCreateDistributedPlannedStmt</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2710">WarnIfListHasForeignDistributedTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#157">distributed_planner</a></td>
+              <td class="coverFnHi">3473</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1580">makeCustomScanTargetlistFromExistingTargetList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1634">makeTargetListFromCustomScanList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#2054">multi_get_relation_info_hook</a></td>
+              <td class="coverFnHi">5577</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1876">multi_join_restriction_hook</a></td>
+              <td class="coverFnHi">2164</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="distributed_planner.c.gcov.html#1945">multi_relation_restriction_hook</a></td>
+              <td class="coverFnHi">6255</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

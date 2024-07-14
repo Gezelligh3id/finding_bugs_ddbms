@@ -1,0 +1,598 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/query_colocation_checker.c</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - query_colocation_checker.c<span style="font-size: 80%;"> (source / <a href="query_colocation_checker.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">135</td>
+            <td class="headerCovTableEntry">142</td>
+            <td class="headerCovTableEntryHi">95.1 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*-------------------------------------------------------------------------</a>
+<a name="2"><span class="lineNum">       2 </span>            :  *</a>
+<a name="3"><span class="lineNum">       3 </span>            :  * query_colocation_checker.c implements the logic for determining</a>
+<a name="4"><span class="lineNum">       4 </span>            :  * whether any subqueries in a given query are co-located (e.g.,</a>
+<a name="5"><span class="lineNum">       5 </span>            :  * distribution keys of the relations inside subqueries are equal).</a>
+<a name="6"><span class="lineNum">       6 </span>            :  *</a>
+<a name="7"><span class="lineNum">       7 </span>            :  * The main logic behind non colocated subquery joins is that we pick</a>
+<a name="8"><span class="lineNum">       8 </span>            :  * an anchor range table entry and check for distribution key equality</a>
+<a name="9"><span class="lineNum">       9 </span>            :  * of any other subqueries in the given query. If for a given subquery,</a>
+<a name="10"><span class="lineNum">      10 </span>            :  * we cannot find distribution key equality with the anchor rte, we</a>
+<a name="11"><span class="lineNum">      11 </span>            :  * recursively plan that subquery.</a>
+<a name="12"><span class="lineNum">      12 </span>            :  *</a>
+<a name="13"><span class="lineNum">      13 </span>            :  * We also used a hacky solution for picking relations as the anchor range</a>
+<a name="14"><span class="lineNum">      14 </span>            :  * table entries. The hack is that we wrap them into a subquery. This is only</a>
+<a name="15"><span class="lineNum">      15 </span>            :  * necessary since some of the attribute equivalence checks are based on</a>
+<a name="16"><span class="lineNum">      16 </span>            :  * queries rather than range table entries.</a>
+<a name="17"><span class="lineNum">      17 </span>            :  *</a>
+<a name="18"><span class="lineNum">      18 </span>            :  * Copyright (c) Citus Data, Inc.</a>
+<a name="19"><span class="lineNum">      19 </span>            :  *-------------------------------------------------------------------------</a>
+<a name="20"><span class="lineNum">      20 </span>            :  */</a>
+<a name="21"><span class="lineNum">      21 </span>            : </a>
+<a name="22"><span class="lineNum">      22 </span>            : #include &quot;postgres.h&quot;</a>
+<a name="23"><span class="lineNum">      23 </span>            : </a>
+<a name="24"><span class="lineNum">      24 </span>            : #include &quot;access/relation.h&quot;</a>
+<a name="25"><span class="lineNum">      25 </span>            : #include &quot;catalog/pg_type.h&quot;</a>
+<a name="26"><span class="lineNum">      26 </span>            : #include &quot;nodes/makefuncs.h&quot;</a>
+<a name="27"><span class="lineNum">      27 </span>            : #include &quot;nodes/nodeFuncs.h&quot;</a>
+<a name="28"><span class="lineNum">      28 </span>            : #include &quot;optimizer/planner.h&quot;</a>
+<a name="29"><span class="lineNum">      29 </span>            : #include &quot;optimizer/prep.h&quot;</a>
+<a name="30"><span class="lineNum">      30 </span>            : #include &quot;parser/parse_relation.h&quot;</a>
+<a name="31"><span class="lineNum">      31 </span>            : #include &quot;parser/parsetree.h&quot;</a>
+<a name="32"><span class="lineNum">      32 </span>            : #include &quot;utils/rel.h&quot;</a>
+<a name="33"><span class="lineNum">      33 </span>            : </a>
+<a name="34"><span class="lineNum">      34 </span>            : #include &quot;pg_version_constants.h&quot;</a>
+<a name="35"><span class="lineNum">      35 </span>            : </a>
+<a name="36"><span class="lineNum">      36 </span>            : #include &quot;distributed/listutils.h&quot;</a>
+<a name="37"><span class="lineNum">      37 </span>            : #include &quot;distributed/metadata_cache.h&quot;</a>
+<a name="38"><span class="lineNum">      38 </span>            : #include &quot;distributed/multi_logical_planner.h&quot;</a>
+<a name="39"><span class="lineNum">      39 </span>            : #include &quot;distributed/multi_logical_planner.h&quot; /* only to access utility functions */</a>
+<a name="40"><span class="lineNum">      40 </span>            : #include &quot;distributed/pg_dist_partition.h&quot;</a>
+<a name="41"><span class="lineNum">      41 </span>            : #include &quot;distributed/query_colocation_checker.h&quot;</a>
+<a name="42"><span class="lineNum">      42 </span>            : #include &quot;distributed/relation_restriction_equivalence.h&quot;</a>
+<a name="43"><span class="lineNum">      43 </span>            : </a>
+<a name="44"><span class="lineNum">      44 </span>            : </a>
+<a name="45"><span class="lineNum">      45 </span>            : static RangeTblEntry * AnchorRte(Query *subquery);</a>
+<a name="46"><span class="lineNum">      46 </span>            : static List * UnionRelationRestrictionLists(List *firstRelationList,</a>
+<a name="47"><span class="lineNum">      47 </span>            :                                             List *secondRelationList);</a>
+<a name="48"><span class="lineNum">      48 </span>            : static List * CreateFilteredTargetListForRelation(Oid relationId,</a>
+<a name="49"><span class="lineNum">      49 </span>            :                                                   List *requiredAttributes);</a>
+<a name="50"><span class="lineNum">      50 </span>            : static List * CreateDummyTargetList(Oid relationId, List *requiredAttributes);</a>
+<a name="51"><span class="lineNum">      51 </span>            : static TargetEntry * CreateTargetEntryForColumn(Form_pg_attribute attributeTuple, Index</a>
+<a name="52"><span class="lineNum">      52 </span>            :                                                 rteIndex,</a>
+<a name="53"><span class="lineNum">      53 </span>            :                                                 int attributeNumber, int resno);</a>
+<a name="54"><span class="lineNum">      54 </span>            : static TargetEntry * CreateTargetEntryForNullCol(Form_pg_attribute attributeTuple, int</a>
+<a name="55"><span class="lineNum">      55 </span>            :                                                  resno);</a>
+<a name="56"><span class="lineNum">      56 </span>            : static TargetEntry * CreateUnusedTargetEntry(int resno);</a>
+<a name="57"><span class="lineNum">      57 </span>            : </a>
+<a name="58"><span class="lineNum">      58 </span>            : /*</a>
+<a name="59"><span class="lineNum">      59 </span>            :  * CreateColocatedJoinChecker is a helper function that simply calculates</a>
+<a name="60"><span class="lineNum">      60 </span>            :  * a ColocatedJoinChecker with the given input and returns it.</a>
+<a name="61"><span class="lineNum">      61 </span>            :  */</a>
+<a name="62"><span class="lineNum">      62 </span>            : ColocatedJoinChecker</a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        643 : CreateColocatedJoinChecker(Query *subquery, PlannerRestrictionContext *restrictionContext)</span></a>
+<a name="64"><span class="lineNum">      64 </span>            : {</a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">        643 :     ColocatedJoinChecker colocatedJoinChecker = { 0 };</span></a>
+<a name="66"><span class="lineNum">      66 </span>            : </a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        643 :     Query *anchorSubquery = NULL;</span></a>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<a name="69"><span class="lineNum">      69 </span>            :     /* we couldn't pick an anchor subquery, no need to continue */</a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        643 :     RangeTblEntry *anchorRangeTblEntry = AnchorRte(subquery);</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        643 :     if (anchorRangeTblEntry == NULL)</span></a>
+<a name="72"><span class="lineNum">      72 </span>            :     {</a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineNoCov">          0 :         colocatedJoinChecker.anchorRelationRestrictionList = NIL;</span></a>
+<a name="74"><span class="lineNum">      74 </span>            : </a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineNoCov">          0 :         return colocatedJoinChecker;</span></a>
+<a name="76"><span class="lineNum">      76 </span>            :     }</a>
+<a name="77"><span class="lineNum">      77 </span>            : </a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">        643 :     if (anchorRangeTblEntry-&gt;rtekind == RTE_RELATION)</span></a>
+<a name="79"><span class="lineNum">      79 </span>            :     {</a>
+<a name="80"><span class="lineNum">      80 </span>            :         /*</a>
+<a name="81"><span class="lineNum">      81 </span>            :          * If we get a relation as our anchor, wrap into a subquery. The only</a>
+<a name="82"><span class="lineNum">      82 </span>            :          * reason that we wrap the relation into a subquery is that some of the utility</a>
+<a name="83"><span class="lineNum">      83 </span>            :          * functions (i.e., FilterPlannerRestrictionForQuery()) rely on queries</a>
+<a name="84"><span class="lineNum">      84 </span>            :          * not relations.</a>
+<a name="85"><span class="lineNum">      85 </span>            :          */</a>
+<a name="86"><span class="lineNum">      86 </span>            : #if PG_VERSION_NUM &gt;= PG_VERSION_16</a>
+<a name="87"><span class="lineNum">      87 </span>            :         RTEPermissionInfo *perminfo = NULL;</a>
+<a name="88"><span class="lineNum">      88 </span>            :         if (anchorRangeTblEntry-&gt;perminfoindex)</a>
+<a name="89"><span class="lineNum">      89 </span>            :         {</a>
+<a name="90"><span class="lineNum">      90 </span>            :             perminfo = getRTEPermissionInfo(subquery-&gt;rteperminfos, anchorRangeTblEntry);</a>
+<a name="91"><span class="lineNum">      91 </span>            :         }</a>
+<a name="92"><span class="lineNum">      92 </span>            :         anchorSubquery = WrapRteRelationIntoSubquery(anchorRangeTblEntry, NIL, perminfo);</a>
+<a name="93"><span class="lineNum">      93 </span>            : #else</a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">        641 :         anchorSubquery = WrapRteRelationIntoSubquery(anchorRangeTblEntry, NIL, NULL);</span></a>
+<a name="95"><span class="lineNum">      95 </span>            : #endif</a>
+<a name="96"><span class="lineNum">      96 </span>            :     }</a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          2 :     else if (anchorRangeTblEntry-&gt;rtekind == RTE_SUBQUERY)</span></a>
+<a name="98"><span class="lineNum">      98 </span>            :     {</a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          2 :         anchorSubquery = anchorRangeTblEntry-&gt;subquery;</span></a>
+<a name="100"><span class="lineNum">     100 </span>            :     }</a>
+<a name="101"><span class="lineNum">     101 </span>            :     else</a>
+<a name="102"><span class="lineNum">     102 </span>            :     {</a>
+<a name="103"><span class="lineNum">     103 </span>            :         /* we don't expect any other RTE type here */</a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineNoCov">          0 :         pg_unreachable();</span></a>
+<a name="105"><span class="lineNum">     105 </span>            :     }</a>
+<a name="106"><span class="lineNum">     106 </span>            : </a>
+<a name="107"><span class="lineNum">     107 </span>            :     PlannerRestrictionContext *anchorPlannerRestrictionContext =</a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">        643 :         FilterPlannerRestrictionForQuery(restrictionContext, anchorSubquery);</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">        643 :     RelationRestrictionContext *anchorRelationRestrictionContext =</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :         anchorPlannerRestrictionContext-&gt;relationRestrictionContext;</a>
+<a name="111"><span class="lineNum">     111 </span>            :     List *anchorRestrictionEquivalences =</a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">        643 :         GenerateAllAttributeEquivalences(anchorPlannerRestrictionContext);</span></a>
+<a name="113"><span class="lineNum">     113 </span>            : </a>
+<a name="114"><span class="lineNum">     114 </span>            :     /* fill the non colocated planning context */</a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">        643 :     colocatedJoinChecker.subquery = subquery;</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">        643 :     colocatedJoinChecker.subqueryPlannerRestriction = restrictionContext;</span></a>
+<a name="117"><span class="lineNum">     117 </span>            : </a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">        643 :     colocatedJoinChecker.anchorRelationRestrictionList =</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">        643 :         anchorRelationRestrictionContext-&gt;relationRestrictionList;</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">        643 :     colocatedJoinChecker.anchorAttributeEquivalences = anchorRestrictionEquivalences;</span></a>
+<a name="121"><span class="lineNum">     121 </span>            : </a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">        643 :     return colocatedJoinChecker;</span></a>
+<a name="123"><span class="lineNum">     123 </span>            : }</a>
+<a name="124"><span class="lineNum">     124 </span>            : </a>
+<a name="125"><span class="lineNum">     125 </span>            : </a>
+<a name="126"><span class="lineNum">     126 </span>            : /*</a>
+<a name="127"><span class="lineNum">     127 </span>            :  * AnchorRte gets a query and searches for a relation or a subquery within</a>
+<a name="128"><span class="lineNum">     128 </span>            :  * the join tree of the query such that we can use it as our anchor range</a>
+<a name="129"><span class="lineNum">     129 </span>            :  * table entry during our non colocated subquery planning.</a>
+<a name="130"><span class="lineNum">     130 </span>            :  *</a>
+<a name="131"><span class="lineNum">     131 </span>            :  * The function returns NULL if it cannot find a proper range table entry for our</a>
+<a name="132"><span class="lineNum">     132 </span>            :  * purposes. See the function for the details.</a>
+<a name="133"><span class="lineNum">     133 </span>            :  */</a>
+<a name="134"><span class="lineNum">     134 </span>            : static RangeTblEntry *</a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">        643 : AnchorRte(Query *subquery)</span></a>
+<a name="136"><span class="lineNum">     136 </span>            : {</a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">        643 :     FromExpr *joinTree = subquery-&gt;jointree;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">        643 :     Relids joinRelIds = get_relids_in_jointree_compat((Node *) joinTree, false, false);</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">        643 :     int currentRTEIndex = -1;</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">        643 :     RangeTblEntry *anchorRangeTblEntry = NULL;</span></a>
+<a name="141"><span class="lineNum">     141 </span>            : </a>
+<a name="142"><span class="lineNum">     142 </span>            :     /*</a>
+<a name="143"><span class="lineNum">     143 </span>            :      * Pick a random anchor relation or subquery (i.e., the first) for now. We</a>
+<a name="144"><span class="lineNum">     144 </span>            :      * might consider picking a better rte as the anchor. For example, we could</a>
+<a name="145"><span class="lineNum">     145 </span>            :      * iterate on the joinRelIds, and check which rteIndex has more distribution</a>
+<a name="146"><span class="lineNum">     146 </span>            :      * key equiality with rteIndexes. For the time being, the current primitive</a>
+<a name="147"><span class="lineNum">     147 </span>            :      * approach helps us in many cases.</a>
+<a name="148"><span class="lineNum">     148 </span>            :      */</a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">        923 :     while ((currentRTEIndex = bms_next_member(joinRelIds, currentRTEIndex)) &gt;= 0)</span></a>
+<a name="150"><span class="lineNum">     150 </span>            :     {</a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">        921 :         RangeTblEntry *currentRte = rt_fetch(currentRTEIndex, subquery-&gt;rtable);</span></a>
+<a name="152"><span class="lineNum">     152 </span>            : </a>
+<a name="153"><span class="lineNum">     153 </span>            :         /*</a>
+<a name="154"><span class="lineNum">     154 </span>            :          * We always prefer distributed relations if we can find any. The</a>
+<a name="155"><span class="lineNum">     155 </span>            :          * reason is that Citus is currently able to recursively plan</a>
+<a name="156"><span class="lineNum">     156 </span>            :          * subqueries, but not relations.</a>
+<a name="157"><span class="lineNum">     157 </span>            :          *</a>
+<a name="158"><span class="lineNum">     158 </span>            :          * For the subqueries, make sure that the subquery contains at least one</a>
+<a name="159"><span class="lineNum">     159 </span>            :          * distributed table and doesn't have a set operation.</a>
+<a name="160"><span class="lineNum">     160 </span>            :          *</a>
+<a name="161"><span class="lineNum">     161 </span>            :          * TODO: The set operation restriction might sound weird, but, the restriction</a>
+<a name="162"><span class="lineNum">     162 </span>            :          * equivalence generation functions ignore set operations. We should</a>
+<a name="163"><span class="lineNum">     163 </span>            :          * integrate the logic in SafeToPushdownUnionSubquery() to</a>
+<a name="164"><span class="lineNum">     164 </span>            :          * GenerateAllAttributeEquivalences() such that the latter becomes aware of</a>
+<a name="165"><span class="lineNum">     165 </span>            :          * the set operations.</a>
+<a name="166"><span class="lineNum">     166 </span>            :          */</a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">       1037 :         if (anchorRangeTblEntry == NULL &amp;&amp; currentRte-&gt;rtekind == RTE_SUBQUERY &amp;&amp;</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">        116 :             FindNodeMatchingCheckFunction((Node *) currentRte-&gt;subquery,</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">         32 :                                           IsDistributedTableRTE) &amp;&amp;</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">         32 :             currentRte-&gt;subquery-&gt;setOperations == NULL &amp;&amp;</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         32 :             !ContainsUnionSubquery(currentRte-&gt;subquery))</span></a>
+<a name="172"><span class="lineNum">     172 </span>            :         {</a>
+<a name="173"><span class="lineNum">     173 </span>            :             /* found a subquery, keep it if we cannot find a relation */</a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         32 :             anchorRangeTblEntry = currentRte;</span></a>
+<a name="175"><span class="lineNum">     175 </span>            :         }</a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        889 :         else if (currentRte-&gt;rtekind == RTE_RELATION)</span></a>
+<a name="177"><span class="lineNum">     177 </span>            :         {</a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        799 :             Oid relationId = currentRte-&gt;relid;</span></a>
+<a name="179"><span class="lineNum">     179 </span>            : </a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">        799 :             if (!IsCitusTableType(relationId, DISTRIBUTED_TABLE))</span></a>
+<a name="181"><span class="lineNum">     181 </span>            :             {</a>
+<a name="182"><span class="lineNum">     182 </span>            :                 /*</a>
+<a name="183"><span class="lineNum">     183 </span>            :                  * We're not interested in non distributed relations.</a>
+<a name="184"><span class="lineNum">     184 </span>            :                  */</a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        158 :                 continue;</span></a>
+<a name="186"><span class="lineNum">     186 </span>            :             }</a>
+<a name="187"><span class="lineNum">     187 </span>            : </a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        641 :             anchorRangeTblEntry = currentRte;</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">        641 :             break;</span></a>
+<a name="190"><span class="lineNum">     190 </span>            :         }</a>
+<a name="191"><span class="lineNum">     191 </span>            :     }</a>
+<a name="192"><span class="lineNum">     192 </span>            : </a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">        643 :     return anchorRangeTblEntry;</span></a>
+<a name="194"><span class="lineNum">     194 </span>            : }</a>
+<a name="195"><span class="lineNum">     195 </span>            : </a>
+<a name="196"><span class="lineNum">     196 </span>            : </a>
+<a name="197"><span class="lineNum">     197 </span>            : /*</a>
+<a name="198"><span class="lineNum">     198 </span>            :  * SubqueryColocated returns true if the input subquery has a distribution</a>
+<a name="199"><span class="lineNum">     199 </span>            :  * key equality with the anchor subquery. In other words, we refer the</a>
+<a name="200"><span class="lineNum">     200 </span>            :  * distribution key equality of relations as &quot;colocation&quot; in this context.</a>
+<a name="201"><span class="lineNum">     201 </span>            :  */</a>
+<a name="202"><span class="lineNum">     202 </span>            : bool</a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">        985 : SubqueryColocated(Query *subquery, ColocatedJoinChecker *checker)</span></a>
+<a name="204"><span class="lineNum">     204 </span>            : {</a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">        985 :     List *anchorRelationRestrictionList = checker-&gt;anchorRelationRestrictionList;</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">        985 :     List *anchorAttributeEquivalences = checker-&gt;anchorAttributeEquivalences;</span></a>
+<a name="207"><span class="lineNum">     207 </span>            : </a>
+<a name="208"><span class="lineNum">     208 </span><span class="lineCov">        985 :     PlannerRestrictionContext *restrictionContext = checker-&gt;subqueryPlannerRestriction;</span></a>
+<a name="209"><span class="lineNum">     209 </span>            :     PlannerRestrictionContext *filteredPlannerContext =</a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">        985 :         FilterPlannerRestrictionForQuery(restrictionContext, subquery);</span></a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">        985 :     List *filteredRestrictionList =</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">        985 :         filteredPlannerContext-&gt;relationRestrictionContext-&gt;relationRestrictionList;</span></a>
+<a name="213"><span class="lineNum">     213 </span>            : </a>
+<a name="214"><span class="lineNum">     214 </span>            : </a>
+<a name="215"><span class="lineNum">     215 </span>            :     /*</a>
+<a name="216"><span class="lineNum">     216 </span>            :      * There are no relations in the input subquery, such as a subquery</a>
+<a name="217"><span class="lineNum">     217 </span>            :      * that consist of only intermediate results or without FROM</a>
+<a name="218"><span class="lineNum">     218 </span>            :      * clause or subquery in WHERE clause anded with FALSE.</a>
+<a name="219"><span class="lineNum">     219 </span>            :      *</a>
+<a name="220"><span class="lineNum">     220 </span>            :      * Note that for the subquery in WHERE clause, the input original</a>
+<a name="221"><span class="lineNum">     221 </span>            :      * subquery (a.k.a., which didn't go through standard_planner()) may</a>
+<a name="222"><span class="lineNum">     222 </span>            :      * contain distributed relations, but postgres is smart enough to</a>
+<a name="223"><span class="lineNum">     223 </span>            :      * not generate the restriction information. That's the reason for</a>
+<a name="224"><span class="lineNum">     224 </span>            :      * not asserting non-existence of distributed relations.</a>
+<a name="225"><span class="lineNum">     225 </span>            :      */</a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineCov">        985 :     if (list_length(filteredRestrictionList) == 0)</span></a>
+<a name="227"><span class="lineNum">     227 </span>            :     {</a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">        694 :         return true;</span></a>
+<a name="229"><span class="lineNum">     229 </span>            :     }</a>
+<a name="230"><span class="lineNum">     230 </span>            : </a>
+<a name="231"><span class="lineNum">     231 </span>            :     /*</a>
+<a name="232"><span class="lineNum">     232 </span>            :      * We merge the relation restrictions of the input subquery and the anchor</a>
+<a name="233"><span class="lineNum">     233 </span>            :      * restrictions to form a temporary relation restriction context. The aim of</a>
+<a name="234"><span class="lineNum">     234 </span>            :      * forming this temporary context is to check whether the context contains</a>
+<a name="235"><span class="lineNum">     235 </span>            :      * distribution key equality or not.</a>
+<a name="236"><span class="lineNum">     236 </span>            :      */</a>
+<a name="237"><span class="lineNum">     237 </span>            :     List *unionedRelationRestrictionList =</a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">        291 :         UnionRelationRestrictionLists(anchorRelationRestrictionList,</span></a>
+<a name="239"><span class="lineNum">     239 </span>            :                                       filteredRestrictionList);</a>
+<a name="240"><span class="lineNum">     240 </span>            : </a>
+<a name="241"><span class="lineNum">     241 </span>            :     /*</a>
+<a name="242"><span class="lineNum">     242 </span>            :      * We already have the attributeEquivalences, thus, only need to prepare</a>
+<a name="243"><span class="lineNum">     243 </span>            :      * the planner restrictions with unioned relations for our purpose of</a>
+<a name="244"><span class="lineNum">     244 </span>            :      * distribution key equality. Note that we don't need to calculate the</a>
+<a name="245"><span class="lineNum">     245 </span>            :      * join restrictions, we're already relying on the attributeEquivalences</a>
+<a name="246"><span class="lineNum">     246 </span>            :      * provided by the context.</a>
+<a name="247"><span class="lineNum">     247 </span>            :      */</a>
+<a name="248"><span class="lineNum">     248 </span><span class="lineCov">        291 :     RelationRestrictionContext *unionedRelationRestrictionContext = palloc0(</span></a>
+<a name="249"><span class="lineNum">     249 </span>            :         sizeof(RelationRestrictionContext));</a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">        291 :     unionedRelationRestrictionContext-&gt;relationRestrictionList =</span></a>
+<a name="251"><span class="lineNum">     251 </span>            :         unionedRelationRestrictionList;</a>
+<a name="252"><span class="lineNum">     252 </span>            : </a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">        291 :     PlannerRestrictionContext *unionedPlannerRestrictionContext = palloc0(</span></a>
+<a name="254"><span class="lineNum">     254 </span>            :         sizeof(PlannerRestrictionContext));</a>
+<a name="255"><span class="lineNum">     255 </span><span class="lineCov">        291 :     unionedPlannerRestrictionContext-&gt;relationRestrictionContext =</span></a>
+<a name="256"><span class="lineNum">     256 </span>            :         unionedRelationRestrictionContext;</a>
+<a name="257"><span class="lineNum">     257 </span>            : </a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        291 :     if (!RestrictionEquivalenceForPartitionKeysViaEquivalences(</span></a>
+<a name="259"><span class="lineNum">     259 </span>            :             unionedPlannerRestrictionContext,</a>
+<a name="260"><span class="lineNum">     260 </span>            :             anchorAttributeEquivalences))</a>
+<a name="261"><span class="lineNum">     261 </span>            :     {</a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">        203 :         return false;</span></a>
+<a name="263"><span class="lineNum">     263 </span>            :     }</a>
+<a name="264"><span class="lineNum">     264 </span>            : </a>
+<a name="265"><span class="lineNum">     265 </span><span class="lineCov">         88 :     return true;</span></a>
+<a name="266"><span class="lineNum">     266 </span>            : }</a>
+<a name="267"><span class="lineNum">     267 </span>            : </a>
+<a name="268"><span class="lineNum">     268 </span>            : </a>
+<a name="269"><span class="lineNum">     269 </span>            : /*</a>
+<a name="270"><span class="lineNum">     270 </span>            :  * WrapRteRelationIntoSubquery wraps the given relation range table entry</a>
+<a name="271"><span class="lineNum">     271 </span>            :  * in a newly constructed &quot;(SELECT * FROM table_name as anchor_relation)&quot; query.</a>
+<a name="272"><span class="lineNum">     272 </span>            :  *</a>
+<a name="273"><span class="lineNum">     273 </span>            :  * Note that the query returned by this function does not contain any filters or</a>
+<a name="274"><span class="lineNum">     274 </span>            :  * projections. The returned query should be used cautiosly and it is mostly</a>
+<a name="275"><span class="lineNum">     275 </span>            :  * designed for generating a stub query.</a>
+<a name="276"><span class="lineNum">     276 </span>            :  */</a>
+<a name="277"><span class="lineNum">     277 </span>            : Query *</a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">       2333 : WrapRteRelationIntoSubquery(RangeTblEntry *rteRelation,</span></a>
+<a name="279"><span class="lineNum">     279 </span>            :                             List *requiredAttributes,</a>
+<a name="280"><span class="lineNum">     280 </span>            :                             RTEPermissionInfo *perminfo)</a>
+<a name="281"><span class="lineNum">     281 </span>            : {</a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">       2333 :     Query *subquery = makeNode(Query);</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">       2333 :     RangeTblRef *newRangeTableRef = makeNode(RangeTblRef);</span></a>
+<a name="284"><span class="lineNum">     284 </span>            : </a>
+<a name="285"><span class="lineNum">     285 </span><span class="lineCov">       2333 :     subquery-&gt;commandType = CMD_SELECT;</span></a>
+<a name="286"><span class="lineNum">     286 </span>            : </a>
+<a name="287"><span class="lineNum">     287 </span>            :     /* we copy the input rteRelation to preserve the rteIdentity */</a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">       2333 :     RangeTblEntry *newRangeTableEntry = copyObject(rteRelation);</span></a>
+<a name="289"><span class="lineNum">     289 </span><span class="lineCov">       2333 :     subquery-&gt;rtable = list_make1(newRangeTableEntry);</span></a>
+<a name="290"><span class="lineNum">     290 </span>            : </a>
+<a name="291"><span class="lineNum">     291 </span>            : #if PG_VERSION_NUM &gt;= PG_VERSION_16</a>
+<a name="292"><span class="lineNum">     292 </span>            :     if (perminfo)</a>
+<a name="293"><span class="lineNum">     293 </span>            :     {</a>
+<a name="294"><span class="lineNum">     294 </span>            :         newRangeTableEntry-&gt;perminfoindex = 1;</a>
+<a name="295"><span class="lineNum">     295 </span>            :         subquery-&gt;rteperminfos = list_make1(perminfo);</a>
+<a name="296"><span class="lineNum">     296 </span>            :     }</a>
+<a name="297"><span class="lineNum">     297 </span>            : #endif</a>
+<a name="298"><span class="lineNum">     298 </span>            : </a>
+<a name="299"><span class="lineNum">     299 </span>            :     /* set the FROM expression to the subquery */</a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">       2333 :     newRangeTableRef = makeNode(RangeTblRef);</span></a>
+<a name="301"><span class="lineNum">     301 </span><span class="lineCov">       2333 :     newRangeTableRef-&gt;rtindex = SINGLE_RTE_INDEX;</span></a>
+<a name="302"><span class="lineNum">     302 </span><span class="lineCov">       2333 :     subquery-&gt;jointree = makeFromExpr(list_make1(newRangeTableRef), NULL);</span></a>
+<a name="303"><span class="lineNum">     303 </span>            : </a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">       2333 :     subquery-&gt;targetList =</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">       2333 :         CreateFilteredTargetListForRelation(rteRelation-&gt;relid, requiredAttributes);</span></a>
+<a name="306"><span class="lineNum">     306 </span>            : </a>
+<a name="307"><span class="lineNum">     307 </span><span class="lineCov">       2333 :     if (list_length(subquery-&gt;targetList) == 0)</span></a>
+<a name="308"><span class="lineNum">     308 </span>            :     {</a>
+<a name="309"><span class="lineNum">     309 </span>            :         /*</a>
+<a name="310"><span class="lineNum">     310 </span>            :          * in case there is no required column, we assign one dummy NULL target entry</a>
+<a name="311"><span class="lineNum">     311 </span>            :          * to the subquery targetList so that it has at least one target.</a>
+<a name="312"><span class="lineNum">     312 </span>            :          * (targetlist should have at least one element)</a>
+<a name="313"><span class="lineNum">     313 </span>            :          */</a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">        681 :         subquery-&gt;targetList = CreateDummyTargetList(rteRelation-&gt;relid,</span></a>
+<a name="315"><span class="lineNum">     315 </span>            :                                                      requiredAttributes);</a>
+<a name="316"><span class="lineNum">     316 </span>            :     }</a>
+<a name="317"><span class="lineNum">     317 </span>            : </a>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">       2333 :     return subquery;</span></a>
+<a name="319"><span class="lineNum">     319 </span>            : }</a>
+<a name="320"><span class="lineNum">     320 </span>            : </a>
+<a name="321"><span class="lineNum">     321 </span>            : </a>
+<a name="322"><span class="lineNum">     322 </span>            : /*</a>
+<a name="323"><span class="lineNum">     323 </span>            :  * CreateAllTargetListForRelation creates a target list which contains all the columns</a>
+<a name="324"><span class="lineNum">     324 </span>            :  * of the given relation. If the column is not in required columns, then it is added</a>
+<a name="325"><span class="lineNum">     325 </span>            :  * as a NULL column.</a>
+<a name="326"><span class="lineNum">     326 </span>            :  */</a>
+<a name="327"><span class="lineNum">     327 </span>            : List *</a>
+<a name="328"><span class="lineNum">     328 </span><span class="lineCov">       1692 : CreateAllTargetListForRelation(Oid relationId, List *requiredAttributes)</span></a>
+<a name="329"><span class="lineNum">     329 </span>            : {</a>
+<a name="330"><span class="lineNum">     330 </span><span class="lineCov">       1692 :     Relation relation = relation_open(relationId, AccessShareLock);</span></a>
+<a name="331"><span class="lineNum">     331 </span><span class="lineCov">       1692 :     int numberOfAttributes = RelationGetNumberOfAttributes(relation);</span></a>
+<a name="332"><span class="lineNum">     332 </span>            : </a>
+<a name="333"><span class="lineNum">     333 </span><span class="lineCov">       1692 :     List *targetList = NIL;</span></a>
+<a name="334"><span class="lineNum">     334 </span><span class="lineCov">       1692 :     int varAttrNo = 1;</span></a>
+<a name="335"><span class="lineNum">     335 </span>            : </a>
+<a name="336"><span class="lineNum">     336 </span><span class="lineCov">      14299 :     for (int attrNum = 1; attrNum &lt;= numberOfAttributes; attrNum++)</span></a>
+<a name="337"><span class="lineNum">     337 </span>            :     {</a>
+<a name="338"><span class="lineNum">     338 </span><span class="lineCov">      12607 :         Form_pg_attribute attributeTuple =</span></a>
+<a name="339"><span class="lineNum">     339 </span><span class="lineCov">      12607 :             TupleDescAttr(relation-&gt;rd_att, attrNum - 1);</span></a>
+<a name="340"><span class="lineNum">     340 </span>            : </a>
+<a name="341"><span class="lineNum">     341 </span><span class="lineCov">      12607 :         int resNo = attrNum;</span></a>
+<a name="342"><span class="lineNum">     342 </span>            : </a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">      12607 :         if (attributeTuple-&gt;attisdropped)</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineNoCov">          0 :         {</span></a>
+<a name="345"><span class="lineNum">     345 </span>            :             /*</a>
+<a name="346"><span class="lineNum">     346 </span>            :              * For dropped columns, we generate a dummy null column because</a>
+<a name="347"><span class="lineNum">     347 </span>            :              * varattno in relation and subquery are different things, however if</a>
+<a name="348"><span class="lineNum">     348 </span>            :              * we put the NULL columns to the subquery for the dropped columns,</a>
+<a name="349"><span class="lineNum">     349 </span>            :              * they will point to the same variable.</a>
+<a name="350"><span class="lineNum">     350 </span>            :              */</a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineNoCov">          0 :             TargetEntry *nullTargetEntry = CreateUnusedTargetEntry(resNo);</span></a>
+<a name="352"><span class="lineNum">     352 </span><span class="lineNoCov">          0 :             targetList = lappend(targetList, nullTargetEntry);</span></a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineNoCov">          0 :             continue;</span></a>
+<a name="354"><span class="lineNum">     354 </span>            :         }</a>
+<a name="355"><span class="lineNum">     355 </span>            : </a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">      12607 :         if (!list_member_int(requiredAttributes, attrNum))</span></a>
+<a name="357"><span class="lineNum">     357 </span>            :         {</a>
+<a name="358"><span class="lineNum">     358 </span>            :             TargetEntry *nullTargetEntry =</a>
+<a name="359"><span class="lineNum">     359 </span><span class="lineCov">      10064 :                 CreateTargetEntryForNullCol(attributeTuple, resNo);</span></a>
+<a name="360"><span class="lineNum">     360 </span><span class="lineCov">      10064 :             targetList = lappend(targetList, nullTargetEntry);</span></a>
+<a name="361"><span class="lineNum">     361 </span>            :         }</a>
+<a name="362"><span class="lineNum">     362 </span>            :         else</a>
+<a name="363"><span class="lineNum">     363 </span>            :         {</a>
+<a name="364"><span class="lineNum">     364 </span>            :             TargetEntry *targetEntry =</a>
+<a name="365"><span class="lineNum">     365 </span><span class="lineCov">       2543 :                 CreateTargetEntryForColumn(attributeTuple, SINGLE_RTE_INDEX, varAttrNo++,</span></a>
+<a name="366"><span class="lineNum">     366 </span>            :                                            resNo);</a>
+<a name="367"><span class="lineNum">     367 </span><span class="lineCov">       2543 :             targetList = lappend(targetList, targetEntry);</span></a>
+<a name="368"><span class="lineNum">     368 </span>            :         }</a>
+<a name="369"><span class="lineNum">     369 </span>            :     }</a>
+<a name="370"><span class="lineNum">     370 </span>            : </a>
+<a name="371"><span class="lineNum">     371 </span><span class="lineCov">       1692 :     relation_close(relation, NoLock);</span></a>
+<a name="372"><span class="lineNum">     372 </span><span class="lineCov">       1692 :     return targetList;</span></a>
+<a name="373"><span class="lineNum">     373 </span>            : }</a>
+<a name="374"><span class="lineNum">     374 </span>            : </a>
+<a name="375"><span class="lineNum">     375 </span>            : </a>
+<a name="376"><span class="lineNum">     376 </span>            : /*</a>
+<a name="377"><span class="lineNum">     377 </span>            :  * CreateFilteredTargetListForRelation creates a target list which contains</a>
+<a name="378"><span class="lineNum">     378 </span>            :  * only the required columns of the given relation. If there is not required</a>
+<a name="379"><span class="lineNum">     379 </span>            :  * columns then a dummy NULL column is put as the only entry.</a>
+<a name="380"><span class="lineNum">     380 </span>            :  */</a>
+<a name="381"><span class="lineNum">     381 </span>            : static List *</a>
+<a name="382"><span class="lineNum">     382 </span><span class="lineCov">       2333 : CreateFilteredTargetListForRelation(Oid relationId, List *requiredAttributes)</span></a>
+<a name="383"><span class="lineNum">     383 </span>            : {</a>
+<a name="384"><span class="lineNum">     384 </span><span class="lineCov">       2333 :     Relation relation = relation_open(relationId, AccessShareLock);</span></a>
+<a name="385"><span class="lineNum">     385 </span><span class="lineCov">       2333 :     int numberOfAttributes = RelationGetNumberOfAttributes(relation);</span></a>
+<a name="386"><span class="lineNum">     386 </span>            : </a>
+<a name="387"><span class="lineNum">     387 </span><span class="lineCov">       2333 :     List *targetList = NIL;</span></a>
+<a name="388"><span class="lineNum">     388 </span><span class="lineCov">       2333 :     int resultNo = 1;</span></a>
+<a name="389"><span class="lineNum">     389 </span><span class="lineCov">      19549 :     for (int attrNum = 1; attrNum &lt;= numberOfAttributes; attrNum++)</span></a>
+<a name="390"><span class="lineNum">     390 </span>            :     {</a>
+<a name="391"><span class="lineNum">     391 </span><span class="lineCov">      17216 :         Form_pg_attribute attributeTuple =</span></a>
+<a name="392"><span class="lineNum">     392 </span><span class="lineCov">      17216 :             TupleDescAttr(relation-&gt;rd_att, attrNum - 1);</span></a>
+<a name="393"><span class="lineNum">     393 </span>            : </a>
+<a name="394"><span class="lineNum">     394 </span><span class="lineCov">      17216 :         if (list_member_int(requiredAttributes, attrNum))</span></a>
+<a name="395"><span class="lineNum">     395 </span>            :         {</a>
+<a name="396"><span class="lineNum">     396 </span>            :             /* In the subquery with only required attribute numbers, the result no</a>
+<a name="397"><span class="lineNum">     397 </span>            :              * corresponds to the ordinal index of it in targetList.</a>
+<a name="398"><span class="lineNum">     398 </span>            :              */</a>
+<a name="399"><span class="lineNum">     399 </span>            :             TargetEntry *targetEntry =</a>
+<a name="400"><span class="lineNum">     400 </span><span class="lineCov">       2543 :                 CreateTargetEntryForColumn(attributeTuple, SINGLE_RTE_INDEX, attrNum,</span></a>
+<a name="401"><span class="lineNum">     401 </span>            :                                            resultNo++);</a>
+<a name="402"><span class="lineNum">     402 </span><span class="lineCov">       2543 :             targetList = lappend(targetList, targetEntry);</span></a>
+<a name="403"><span class="lineNum">     403 </span>            :         }</a>
+<a name="404"><span class="lineNum">     404 </span>            :     }</a>
+<a name="405"><span class="lineNum">     405 </span><span class="lineCov">       2333 :     relation_close(relation, NoLock);</span></a>
+<a name="406"><span class="lineNum">     406 </span><span class="lineCov">       2333 :     return targetList;</span></a>
+<a name="407"><span class="lineNum">     407 </span>            : }</a>
+<a name="408"><span class="lineNum">     408 </span>            : </a>
+<a name="409"><span class="lineNum">     409 </span>            : </a>
+<a name="410"><span class="lineNum">     410 </span>            : /*</a>
+<a name="411"><span class="lineNum">     411 </span>            :  * CreateDummyTargetList creates a target list which contains only a</a>
+<a name="412"><span class="lineNum">     412 </span>            :  * NULL entry.</a>
+<a name="413"><span class="lineNum">     413 </span>            :  */</a>
+<a name="414"><span class="lineNum">     414 </span>            : static List *</a>
+<a name="415"><span class="lineNum">     415 </span><span class="lineCov">        681 : CreateDummyTargetList(Oid relationId, List *requiredAttributes)</span></a>
+<a name="416"><span class="lineNum">     416 </span>            : {</a>
+<a name="417"><span class="lineNum">     417 </span><span class="lineCov">        681 :     int resno = 1;</span></a>
+<a name="418"><span class="lineNum">     418 </span><span class="lineCov">        681 :     TargetEntry *dummyTargetEntry = CreateUnusedTargetEntry(resno);</span></a>
+<a name="419"><span class="lineNum">     419 </span><span class="lineCov">        681 :     return list_make1(dummyTargetEntry);</span></a>
+<a name="420"><span class="lineNum">     420 </span>            : }</a>
+<a name="421"><span class="lineNum">     421 </span>            : </a>
+<a name="422"><span class="lineNum">     422 </span>            : </a>
+<a name="423"><span class="lineNum">     423 </span>            : /*</a>
+<a name="424"><span class="lineNum">     424 </span>            :  * CreateTargetEntryForColumn creates a target entry for the given</a>
+<a name="425"><span class="lineNum">     425 </span>            :  * column.</a>
+<a name="426"><span class="lineNum">     426 </span>            :  */</a>
+<a name="427"><span class="lineNum">     427 </span>            : static TargetEntry *</a>
+<a name="428"><span class="lineNum">     428 </span><span class="lineCov">       5086 : CreateTargetEntryForColumn(Form_pg_attribute attributeTuple, Index rteIndex,</span></a>
+<a name="429"><span class="lineNum">     429 </span>            :                            int attributeNumber, int resno)</a>
+<a name="430"><span class="lineNum">     430 </span>            : {</a>
+<a name="431"><span class="lineNum">     431 </span>            :     Var *targetColumn =</a>
+<a name="432"><span class="lineNum">     432 </span><span class="lineCov">       5086 :         makeVar(rteIndex, attributeNumber, attributeTuple-&gt;atttypid,</span></a>
+<a name="433"><span class="lineNum">     433 </span>            :                 attributeTuple-&gt;atttypmod, attributeTuple-&gt;attcollation, 0);</a>
+<a name="434"><span class="lineNum">     434 </span>            :     TargetEntry *targetEntry =</a>
+<a name="435"><span class="lineNum">     435 </span><span class="lineCov">       5086 :         makeTargetEntry((Expr *) targetColumn, resno,</span></a>
+<a name="436"><span class="lineNum">     436 </span><span class="lineCov">       5086 :                         pstrdup(attributeTuple-&gt;attname.data), false);</span></a>
+<a name="437"><span class="lineNum">     437 </span><span class="lineCov">       5086 :     return targetEntry;</span></a>
+<a name="438"><span class="lineNum">     438 </span>            : }</a>
+<a name="439"><span class="lineNum">     439 </span>            : </a>
+<a name="440"><span class="lineNum">     440 </span>            : </a>
+<a name="441"><span class="lineNum">     441 </span>            : /*</a>
+<a name="442"><span class="lineNum">     442 </span>            :  * CreateTargetEntryForNullCol creates a target entry that has a NULL expression.</a>
+<a name="443"><span class="lineNum">     443 </span>            :  */</a>
+<a name="444"><span class="lineNum">     444 </span>            : static TargetEntry *</a>
+<a name="445"><span class="lineNum">     445 </span><span class="lineCov">      10064 : CreateTargetEntryForNullCol(Form_pg_attribute attributeTuple, int resno)</span></a>
+<a name="446"><span class="lineNum">     446 </span>            : {</a>
+<a name="447"><span class="lineNum">     447 </span><span class="lineCov">      10064 :     Expr *nullExpr = (Expr *) makeNullConst(attributeTuple-&gt;atttypid,</span></a>
+<a name="448"><span class="lineNum">     448 </span>            :                                             attributeTuple-&gt;atttypmod,</a>
+<a name="449"><span class="lineNum">     449 </span>            :                                             attributeTuple-&gt;attcollation);</a>
+<a name="450"><span class="lineNum">     450 </span><span class="lineCov">      10064 :     char *resName = attributeTuple-&gt;attname.data;</span></a>
+<a name="451"><span class="lineNum">     451 </span>            :     TargetEntry *targetEntry =</a>
+<a name="452"><span class="lineNum">     452 </span><span class="lineCov">      10064 :         makeTargetEntry(nullExpr, resno, pstrdup(resName), false);</span></a>
+<a name="453"><span class="lineNum">     453 </span><span class="lineCov">      10064 :     return targetEntry;</span></a>
+<a name="454"><span class="lineNum">     454 </span>            : }</a>
+<a name="455"><span class="lineNum">     455 </span>            : </a>
+<a name="456"><span class="lineNum">     456 </span>            : </a>
+<a name="457"><span class="lineNum">     457 </span>            : /*</a>
+<a name="458"><span class="lineNum">     458 </span>            :  * CreateUnusedTargetEntry creates a dummy target entry which is not used</a>
+<a name="459"><span class="lineNum">     459 </span>            :  * in postgres query.</a>
+<a name="460"><span class="lineNum">     460 </span>            :  */</a>
+<a name="461"><span class="lineNum">     461 </span>            : static TargetEntry *</a>
+<a name="462"><span class="lineNum">     462 </span><span class="lineCov">        681 : CreateUnusedTargetEntry(int resno)</span></a>
+<a name="463"><span class="lineNum">     463 </span>            : {</a>
+<a name="464"><span class="lineNum">     464 </span><span class="lineCov">        681 :     StringInfo colname = makeStringInfo();</span></a>
+<a name="465"><span class="lineNum">     465 </span><span class="lineCov">        681 :     appendStringInfo(colname, &quot;dummy-%d&quot;, resno);</span></a>
+<a name="466"><span class="lineNum">     466 </span><span class="lineCov">        681 :     Expr *nullExpr = (Expr *) makeNullConst(INT4OID,</span></a>
+<a name="467"><span class="lineNum">     467 </span>            :                                             0,</a>
+<a name="468"><span class="lineNum">     468 </span>            :                                             InvalidOid);</a>
+<a name="469"><span class="lineNum">     469 </span>            :     TargetEntry *targetEntry =</a>
+<a name="470"><span class="lineNum">     470 </span><span class="lineCov">        681 :         makeTargetEntry(nullExpr, resno, colname-&gt;data, false);</span></a>
+<a name="471"><span class="lineNum">     471 </span><span class="lineCov">        681 :     return targetEntry;</span></a>
+<a name="472"><span class="lineNum">     472 </span>            : }</a>
+<a name="473"><span class="lineNum">     473 </span>            : </a>
+<a name="474"><span class="lineNum">     474 </span>            : </a>
+<a name="475"><span class="lineNum">     475 </span>            : /*</a>
+<a name="476"><span class="lineNum">     476 </span>            :  * UnionRelationRestrictionLists merges two relation restriction lists</a>
+<a name="477"><span class="lineNum">     477 </span>            :  * and returns a newly allocated list. The merged relation restriction</a>
+<a name="478"><span class="lineNum">     478 </span>            :  * list doesn't contain any duplicate elements.</a>
+<a name="479"><span class="lineNum">     479 </span>            :  */</a>
+<a name="480"><span class="lineNum">     480 </span>            : static List *</a>
+<a name="481"><span class="lineNum">     481 </span><span class="lineCov">        291 : UnionRelationRestrictionLists(List *firstRelationList, List *secondRelationList)</span></a>
+<a name="482"><span class="lineNum">     482 </span>            : {</a>
+<a name="483"><span class="lineNum">     483 </span><span class="lineCov">        291 :     List *unionedRelationRestrictionList = NULL;</span></a>
+<a name="484"><span class="lineNum">     484 </span><span class="lineCov">        291 :     ListCell *relationRestrictionCell = NULL;</span></a>
+<a name="485"><span class="lineNum">     485 </span><span class="lineCov">        291 :     Relids rteIdentities = NULL;</span></a>
+<a name="486"><span class="lineNum">     486 </span>            : </a>
+<a name="487"><span class="lineNum">     487 </span>            :     /* list_concat destructively modifies the first list, thus copy it */</a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">        291 :     firstRelationList = list_copy(firstRelationList);</span></a>
+<a name="489"><span class="lineNum">     489 </span><span class="lineCov">        291 :     List *allRestrictionList = list_concat(firstRelationList, secondRelationList);</span></a>
+<a name="490"><span class="lineNum">     490 </span>            : </a>
+<a name="491"><span class="lineNum">     491 </span><span class="lineCov">        909 :     foreach(relationRestrictionCell, allRestrictionList)</span></a>
+<a name="492"><span class="lineNum">     492 </span>            :     {</a>
+<a name="493"><span class="lineNum">     493 </span><span class="lineCov">        618 :         RelationRestriction *restriction =</span></a>
+<a name="494"><span class="lineNum">     494 </span>            :             (RelationRestriction *) lfirst(relationRestrictionCell);</a>
+<a name="495"><span class="lineNum">     495 </span><span class="lineCov">        618 :         int rteIdentity = GetRTEIdentity(restriction-&gt;rte);</span></a>
+<a name="496"><span class="lineNum">     496 </span>            : </a>
+<a name="497"><span class="lineNum">     497 </span>            :         /* already have the same rte, skip */</a>
+<a name="498"><span class="lineNum">     498 </span><span class="lineCov">        618 :         if (bms_is_member(rteIdentity, rteIdentities))</span></a>
+<a name="499"><span class="lineNum">     499 </span>            :         {</a>
+<a name="500"><span class="lineNum">     500 </span><span class="lineCov">          2 :             continue;</span></a>
+<a name="501"><span class="lineNum">     501 </span>            :         }</a>
+<a name="502"><span class="lineNum">     502 </span>            : </a>
+<a name="503"><span class="lineNum">     503 </span>            :         unionedRelationRestrictionList =</a>
+<a name="504"><span class="lineNum">     504 </span><span class="lineCov">        616 :             lappend(unionedRelationRestrictionList, restriction);</span></a>
+<a name="505"><span class="lineNum">     505 </span>            : </a>
+<a name="506"><span class="lineNum">     506 </span><span class="lineCov">        616 :         rteIdentities = bms_add_member(rteIdentities, rteIdentity);</span></a>
+<a name="507"><span class="lineNum">     507 </span>            :     }</a>
+<a name="508"><span class="lineNum">     508 </span>            : </a>
+<a name="509"><span class="lineNum">     509 </span><span class="lineCov">        291 :     RelationRestrictionContext *unionedRestrictionContext = palloc0(</span></a>
+<a name="510"><span class="lineNum">     510 </span>            :         sizeof(RelationRestrictionContext));</a>
+<a name="511"><span class="lineNum">     511 </span><span class="lineCov">        291 :     unionedRestrictionContext-&gt;relationRestrictionList = unionedRelationRestrictionList;</span></a>
+<a name="512"><span class="lineNum">     512 </span>            : </a>
+<a name="513"><span class="lineNum">     513 </span><span class="lineCov">        291 :     return unionedRelationRestrictionList;</span></a>
+<a name="514"><span class="lineNum">     514 </span>            : }</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

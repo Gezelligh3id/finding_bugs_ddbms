@@ -1,0 +1,708 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/metadata/metadata_sync.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/metadata</a> - metadata_sync.c<span style="font-size: 80%;"> (<a href="metadata_sync.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">146</td>
+            <td class="headerCovTableEntry">1778</td>
+            <td class="headerCovTableEntryLo">8.2 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 15:56:47</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntry">157</td>
+            <td class="headerCovTableEntryLo">19.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="metadata_sync.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4412">AddPlacementMetadataCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#336">AddTableToPublications</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#748">CitusTableMetadataCreateCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#491">ClusterHasKnownMetadataWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4232">ColocationGroupCreateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4345">ColocationGroupDeleteCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1408">ColocationIdUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#295">CreateDependingViewsOnWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2789">CreateInterTableRelationshipOfRelationOnWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4567">CreateMetadataSyncContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2042">CreateSequenceDependencyCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2839">CreateShellTableOnWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2880">CreateTableMetadataOnWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1459">DDLCommandsForSequence</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4428">DeletePlacementMetadataCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2906">DetachPartitionCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1099">DistributionCreateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1140">DistributionDeleteCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1159">DistributionDeleteMetadataCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#678">DropMetadataSnapshotOnNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3531">EnsureCitusInitiatedOperation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1072">EnsureObjectMetadataIsSane</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3382">EnsurePartitionMetadataIsSane</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#388">EnsureSequentialModeMetadataOperations</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3547">EnsureShardMetadataIsSane</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3782">EnsureShardPlacementMetadataIsSane</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4530">EstablishAndSetMetadataSyncBareConnections</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#570">FetchRelationIdFromPgPartitionHeapTuple</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2246">GenerateGrantOnDatabaseFromAclItem</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2555">GenerateGrantOnFDWQueriesFromAclItem</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2460">GenerateGrantOnForeignServerQueriesFromAclItem</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2500">GenerateGrantOnFunctionQueriesFromAclItem</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2646">GenerateGrantOnSequenceQueriesFromAclItem</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1798">GetAttrDefsFromSequence</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1495">GetAttributeTypeOid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1840">GetDependentFunctionsWithRelation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1655">GetDependentRelationsWithSequence</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1543">GetDependentSequencesWithRelation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1906">GetFunctionDependenciesForObjects</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1711">GetSequencesFromAttrDef</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2212">GrantOnDatabaseDDLCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2423">GrantOnForeignServerDDLCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2386">GrantOnFunctionDDLCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2610">GrantOnSequenceDDLCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2767">HasMetadataWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1995">IdentitySequenceDependencyCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2817">InterTableRelationshipOfRelationCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1443">LocalGroupIdUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4625">MetadataSyncCollectsCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3175">MetadataSyncSigAlrmHandler</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3156">MetadataSyncSigTermHandler</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1354">NodeDeleteCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#862">NodeListIdempotentInsertCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#790">NodeListInsertCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#725">NodeMetadataCreateCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#775">NodeMetadataDropCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1371">NodeStateUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1426">PlacementUpsertCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4809">PropagateNodeWideObjectsCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4291">RemoteCollationIdExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4444">RemoteSchemaIdExpressionById</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4462">RemoteSchemaIdExpressionByName</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4478">RemoteTableIdExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4256">RemoteTypeIdExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4611">ResetMetadataSyncMemoryContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4974">SendColocationMetadataCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#5118">SendDependencyCreationCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#5236">SendDistObjectCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#5187">SendDistTableMetadataCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#5328">SendInterTableRelationshipCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4945">SendMetadataDeletionCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4904">SendNodeWideObjectsSyncCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4638">SendOrCollectCommandListToActivatedNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4686">SendOrCollectCommandListToMetadataNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4728">SendOrCollectCommandListToSingleNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4926">SendShellTableDeletionCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#5071">SendTenantSchemaMetadataCommands</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1956">SequenceDependencyCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2696">SetLocalEnableMetadataSync</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4493">SetMetadataSyncNodesFromNodeList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1337">ShardDeleteCommandList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1199">ShardListInsertCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1389">ShouldHaveShardsUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3812">ShouldSkipMetadataChecks</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#605">ShouldSyncSequenceMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#522">ShouldSyncTableMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#594">ShouldSyncTableMetadataInternal</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#551">ShouldSyncTableMetadataViaCatalog</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#502">ShouldSyncUserCommandForObject</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3194">SpawnSyncNodeMetadataToNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#272">SyncCitusTableMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4329">SyncDeleteColocationGroupToNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4844">SyncDistributedObjects</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4212">SyncNewColocationGroupToNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#628">SyncNodeMetadataSnapshotToNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3025">SyncNodeMetadataToNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3061">SyncNodeMetadataToNodesMain</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2956">SyncNodeMetadataToNodesOptional</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1177">TableOwnerResetCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4378">TenantSchemaDeleteCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4362">TenantSchemaInsertCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2719">TruncateTriggerCreateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4394">UpdateNoneDistTableMetadataCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4777">WorkerDropAllShellTablesCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4792">WorkerDropSequenceDependencyCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4016">citus_internal_add_colocation_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#1001">citus_internal_add_object_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3302">citus_internal_add_partition_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3685">citus_internal_add_placement_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3747">citus_internal_add_placement_metadata_internal</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3727">citus_internal_add_placement_metadata_legacy</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3475">citus_internal_add_shard_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4072">citus_internal_add_tenant_schema</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4150">citus_internal_database_command</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4045">citus_internal_delete_colocation_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3446">citus_internal_delete_partition_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3706">citus_internal_delete_placement_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3912">citus_internal_delete_shard_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4097">citus_internal_delete_tenant_schema</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#4116">citus_internal_update_none_dist_table_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3845">citus_internal_update_placement_metadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3952">citus_internal_update_relation_colocation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#236">start_metadata_sync_to_all_nodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#199">start_metadata_sync_to_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#425">stop_metadata_sync_to_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2065">worker_record_sequence_dependency</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2118">CreateSchemaDDLCommand</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2136">GrantOnSchemaDDLCommands</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2739">SchemaOwnerName</a></td>
+              <td class="coverFnHi">2</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3262">ShouldInitiateMetadataSync</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#3235">SignalMetadataSyncDaemon</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#185">pg_finfo_citus_internal_database_command</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#159">pg_finfo_start_metadata_sync_to_all_nodes</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#160">pg_finfo_start_metadata_sync_to_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#162">pg_finfo_worker_record_sequence_dependency</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2171">GenerateGrantOnSchemaQueriesFromAclItem</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2705">GenerateSetRoleQuery</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#889">MarkObjectsDistributedCreateCommand</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2301">GenerateGrantStmtForRights</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2595">GetAccessPrivObjectForGrantStmt</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#2327">GetObjectsForGrantStmt</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#175">pg_finfo_citus_internal_add_placement_metadata_legacy</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#161">pg_finfo_stop_metadata_sync_to_node</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#180">pg_finfo_citus_internal_add_colocation_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#179">pg_finfo_citus_internal_add_object_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#170">pg_finfo_citus_internal_add_partition_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#172">pg_finfo_citus_internal_add_shard_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#182">pg_finfo_citus_internal_add_tenant_schema</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#181">pg_finfo_citus_internal_delete_colocation_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#171">pg_finfo_citus_internal_delete_partition_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#174">pg_finfo_citus_internal_delete_placement_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#177">pg_finfo_citus_internal_delete_shard_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#183">pg_finfo_citus_internal_delete_tenant_schema</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#184">pg_finfo_citus_internal_update_none_dist_table_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#176">pg_finfo_citus_internal_update_placement_metadata</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#178">pg_finfo_citus_internal_update_relation_colocation</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="metadata_sync.c.gcov.html#173">pg_finfo_citus_internal_add_placement_metadata</a></td>
+              <td class="coverFnHi">12</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

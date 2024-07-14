@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/metadata/node_metadata.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/metadata</a> - node_metadata.c<span style="font-size: 80%;"> (<a href="node_metadata.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">237</td>
+            <td class="headerCovTableEntry">994</td>
+            <td class="headerCovTableEntryLo">23.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">44</td>
+            <td class="headerCovTableEntry">109</td>
+            <td class="headerCovTableEntryLo">40.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="node_metadata.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1063">ActivateNodeList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2265">AddNodeMetadataViaMetadataContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#646">BlockDistributedQueriesOnMetadataNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1194">CheckBackgroundWorkerToObtainLocks</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2913">DeleteNodeRow</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2783">EnsureCoordinatorIsInMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1668">EnsureParentSessionHasExclusiveLockOnPgDistNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#257">EnsureTransactionalMetadataSyncMode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3142">ErrorIfAnyNodeNotExist</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2582">ErrorIfCoordinatorMetadataSetFalse</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2016">ErrorIfNodeContainsNonRemovablePlacements</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1889">FindCoordinatorNodeId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1839">FindNodeAnyClusterByNodeId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1862">FindNodeWithNodeId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1798">FindWorkerNodeOrError</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2493">GetMetadataSyncCommandToSetNodeColumn</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2688">GetNextGroupId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2647">GetNodeByNodeId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#806">GroupForNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1251">LockPlacementsWithBackgroundWorkersInPrimaryNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1182">LockShardsInWorkerPlacementList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#943">MarkNodesNotSyncedInLoopBackConnection</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#732">ModifiableWorkerNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2548">NodeHasmetadataUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#862">NodeIsSecondary</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2565">NodeMetadataSyncedUpdateCommand</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2054">PlacementHasActivePlacementOnAnotherGroup</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1963">RemoveNodeFromCluster</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3191">SendDeletionCommandsForReplicatedTablePlacements</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1424">SetLockTimeoutLocally</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1013">SetNodeMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2375">SetNodeStateViaMetadataContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2600">SetShouldHaveShards</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2354">SetWorkerColumn</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2452">SetWorkerColumnLocalOnly</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2401">SetWorkerColumnOptional</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3031">StringToDatum</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3213">SyncNodeMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3067">UnsetMetadataSyncedForAllWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3168">UpdateLocalGroupIdsViaMetadataContext</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1433">UpdateNodeLocation</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#755">citus_activate_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#358">citus_add_inactive_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#273">citus_add_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#411">citus_add_secondary_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1625">citus_coordinator_nodeid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#504">citus_disable_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1710">citus_internal_mark_node_not_synced</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1647">citus_is_coordinator</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1583">citus_nodename_for_nodeid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1604">citus_nodeport_for_nodeid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1388">citus_pause_node_within_txn</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#467">citus_remove_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#193">citus_set_coordinator_host</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#682">citus_set_node_property</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1274">citus_update_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1502">get_shard_id_for_distribution_column</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#794">master_activate_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#400">master_add_inactive_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#346">master_add_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#451">master_add_secondary_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#672">master_disable_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#485">master_remove_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#721">master_set_node_property</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1413">master_update_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2108">AddNodeMetadata</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2076">CountPrimariesWithMetadata</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#174">DefaultNodeMetadata</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2720">GetNextNodeId</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2866">InsertNodeRow</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2840">InsertPlaceholderCoordinatorRecord</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1816">FindWorkerNodeAnyCluster</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2614">GetNodeTuple</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#157">pg_finfo_citus_activate_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#147">pg_finfo_citus_add_inactive_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#145">pg_finfo_citus_add_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#149">pg_finfo_citus_add_secondary_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#165">pg_finfo_citus_coordinator_nodeid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#166">pg_finfo_citus_is_coordinator</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#163">pg_finfo_citus_nodename_for_nodeid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#164">pg_finfo_citus_nodeport_for_nodeid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#160">pg_finfo_citus_pause_node_within_txn</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#153">pg_finfo_citus_remove_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#144">pg_finfo_citus_set_coordinator_host</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#151">pg_finfo_citus_set_node_property</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#159">pg_finfo_citus_update_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#162">pg_finfo_get_shard_id_for_distribution_column</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#156">pg_finfo_master_disable_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#154">pg_finfo_master_remove_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#152">pg_finfo_master_set_node_property</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#158">pg_finfo_master_activate_node</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#150">pg_finfo_master_add_secondary_node</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#161">pg_finfo_master_update_node</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#155">pg_finfo_citus_disable_node</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#167">pg_finfo_citus_internal_mark_node_not_synced</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#148">pg_finfo_master_add_inactive_node</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#146">pg_finfo_master_add_node</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2813">InsertCoordinatorIfClusterEmpty</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2769">EnsurePropagationToCoordinator</a></td>
+              <td class="coverFnHi">123</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2972">TupleToWorkerNode</a></td>
+              <td class="coverFnHi">164</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1916">ReadDistNode</a></td>
+              <td class="coverFnHi">352</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#852">NodeIsLocal</a></td>
+              <td class="coverFnHi">521</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#824">NodeIsPrimaryAndRemote</a></td>
+              <td class="coverFnHi">521</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#906">PrimaryNodeForGroup</a></td>
+              <td class="coverFnHi">647</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#2747">EnsureCoordinator</a></td>
+              <td class="coverFnHi">663</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#3050">DatumToString</a></td>
+              <td class="coverFnHi">1711</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#1764">FindWorkerNode</a></td>
+              <td class="coverFnHi">21718</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#881">NodeIsReadable</a></td>
+              <td class="coverFnHi">58182</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="node_metadata.c.gcov.html#834">NodeIsPrimary</a></td>
+              <td class="coverFnHi">59837</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

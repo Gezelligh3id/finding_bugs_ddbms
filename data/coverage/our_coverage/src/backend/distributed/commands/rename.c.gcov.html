@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/commands/rename.c</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/commands</a> - rename.c<span style="font-size: 80%;"> (source / <a href="rename.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">66</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*-------------------------------------------------------------------------</a>
+<a name="2"><span class="lineNum">       2 </span>            :  *</a>
+<a name="3"><span class="lineNum">       3 </span>            :  * rename.c</a>
+<a name="4"><span class="lineNum">       4 </span>            :  *    Commands for renaming objects related to distributed tables</a>
+<a name="5"><span class="lineNum">       5 </span>            :  *</a>
+<a name="6"><span class="lineNum">       6 </span>            :  * Copyright (c) Citus Data, Inc.</a>
+<a name="7"><span class="lineNum">       7 </span>            :  *</a>
+<a name="8"><span class="lineNum">       8 </span>            :  *-------------------------------------------------------------------------</a>
+<a name="9"><span class="lineNum">       9 </span>            :  */</a>
+<a name="10"><span class="lineNum">      10 </span>            : </a>
+<a name="11"><span class="lineNum">      11 </span>            : #include &quot;postgres.h&quot;</a>
+<a name="12"><span class="lineNum">      12 </span>            : </a>
+<a name="13"><span class="lineNum">      13 </span>            : #include &quot;catalog/index.h&quot;</a>
+<a name="14"><span class="lineNum">      14 </span>            : #include &quot;catalog/namespace.h&quot;</a>
+<a name="15"><span class="lineNum">      15 </span>            : #include &quot;nodes/parsenodes.h&quot;</a>
+<a name="16"><span class="lineNum">      16 </span>            : #include &quot;utils/lsyscache.h&quot;</a>
+<a name="17"><span class="lineNum">      17 </span>            : </a>
+<a name="18"><span class="lineNum">      18 </span>            : #include &quot;distributed/commands.h&quot;</a>
+<a name="19"><span class="lineNum">      19 </span>            : #include &quot;distributed/commands/utility_hook.h&quot;</a>
+<a name="20"><span class="lineNum">      20 </span>            : #include &quot;distributed/metadata_cache.h&quot;</a>
+<a name="21"><span class="lineNum">      21 </span>            : </a>
+<a name="22"><span class="lineNum">      22 </span>            : </a>
+<a name="23"><span class="lineNum">      23 </span>            : /*</a>
+<a name="24"><span class="lineNum">      24 </span>            :  * PreprocessRenameStmt first determines whether a given rename statement involves</a>
+<a name="25"><span class="lineNum">      25 </span>            :  * a distributed table. If so (and if it is supported, i.e. renames a column),</a>
+<a name="26"><span class="lineNum">      26 </span>            :  * it creates a DDLJob to encapsulate information needed during the worker node</a>
+<a name="27"><span class="lineNum">      27 </span>            :  * portion of DDL execution before returning that DDLJob in a List. If no dis-</a>
+<a name="28"><span class="lineNum">      28 </span>            :  * tributed table is involved, this function returns NIL.</a>
+<a name="29"><span class="lineNum">      29 </span>            :  */</a>
+<a name="30"><span class="lineNum">      30 </span>            : List *</a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineNoCov">          0 : PreprocessRenameStmt(Node *node, const char *renameCommand,</span></a>
+<a name="32"><span class="lineNum">      32 </span>            :                      ProcessUtilityContext processUtilityContext)</a>
+<a name="33"><span class="lineNum">      33 </span>            : {</a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineNoCov">          0 :     RenameStmt *renameStmt = castNode(RenameStmt, node);</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineNoCov">          0 :     Oid objectRelationId = InvalidOid; /* SQL Object OID */</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineNoCov">          0 :     Oid tableRelationId = InvalidOid; /* Relation OID, maybe not the same. */</span></a>
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span>            :     /*</a>
+<a name="39"><span class="lineNum">      39 </span>            :      * We only support some of the PostgreSQL supported RENAME statements, and</a>
+<a name="40"><span class="lineNum">      40 </span>            :      * our list include only renaming table, index, policy and view (related) objects.</a>
+<a name="41"><span class="lineNum">      41 </span>            :      */</a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineNoCov">          0 :     if (!IsAlterTableRenameStmt(renameStmt) &amp;&amp;</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :         !IsIndexRenameStmt(renameStmt) &amp;&amp;</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 :         !IsPolicyRenameStmt(renameStmt) &amp;&amp;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineNoCov">          0 :         !IsViewRenameStmt(renameStmt))</span></a>
+<a name="46"><span class="lineNum">      46 </span>            :     {</a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineNoCov">          0 :         return NIL;</span></a>
+<a name="48"><span class="lineNum">      48 </span>            :     }</a>
+<a name="49"><span class="lineNum">      49 </span>            : </a>
+<a name="50"><span class="lineNum">      50 </span>            :     /*</a>
+<a name="51"><span class="lineNum">      51 </span>            :      * The lock levels here should be same as the ones taken in</a>
+<a name="52"><span class="lineNum">      52 </span>            :      * RenameRelation(), renameatt() and RenameConstraint(). All statements</a>
+<a name="53"><span class="lineNum">      53 </span>            :      * have identical lock levels except alter index rename.</a>
+<a name="54"><span class="lineNum">      54 </span>            :      */</a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 :     LOCKMODE lockmode = (IsIndexRenameStmt(renameStmt)) ?</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineNoCov">          0 :                         ShareUpdateExclusiveLock : AccessExclusiveLock;</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineNoCov">          0 :     objectRelationId = RangeVarGetRelid(renameStmt-&gt;relation, lockmode,</span></a>
+<a name="58"><span class="lineNum">      58 </span>            :                                         renameStmt-&gt;missing_ok);</a>
+<a name="59"><span class="lineNum">      59 </span>            : </a>
+<a name="60"><span class="lineNum">      60 </span>            :     /*</a>
+<a name="61"><span class="lineNum">      61 </span>            :      * If the table does not exist, don't do anything here to allow PostgreSQL</a>
+<a name="62"><span class="lineNum">      62 </span>            :      * to throw the appropriate error or notice message later.</a>
+<a name="63"><span class="lineNum">      63 </span>            :      */</a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :     if (!OidIsValid(objectRelationId))</span></a>
+<a name="65"><span class="lineNum">      65 </span>            :     {</a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineNoCov">          0 :         return NIL;</span></a>
+<a name="67"><span class="lineNum">      67 </span>            :     }</a>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<a name="69"><span class="lineNum">      69 </span>            :     /*</a>
+<a name="70"><span class="lineNum">      70 </span>            :      * Check whether we are dealing with a sequence or view here and route queries</a>
+<a name="71"><span class="lineNum">      71 </span>            :      * accordingly to the right processor function. We need to check both objects here</a>
+<a name="72"><span class="lineNum">      72 </span>            :      * since PG supports targeting sequences and views with ALTER TABLE commands.</a>
+<a name="73"><span class="lineNum">      73 </span>            :      */</a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineNoCov">          0 :     char relKind = get_rel_relkind(objectRelationId);</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineNoCov">          0 :     if (relKind == RELKIND_SEQUENCE)</span></a>
+<a name="76"><span class="lineNum">      76 </span>            :     {</a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineNoCov">          0 :         RenameStmt *stmtCopy = copyObject(renameStmt);</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineNoCov">          0 :         stmtCopy-&gt;renameType = OBJECT_SEQUENCE;</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 :         return PreprocessRenameSequenceStmt((Node *) stmtCopy, renameCommand,</span></a>
+<a name="80"><span class="lineNum">      80 </span>            :                                             processUtilityContext);</a>
+<a name="81"><span class="lineNum">      81 </span>            :     }</a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 :     else if (relKind == RELKIND_VIEW)</span></a>
+<a name="83"><span class="lineNum">      83 </span>            :     {</a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineNoCov">          0 :         RenameStmt *stmtCopy = copyObject(renameStmt);</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :         stmtCopy-&gt;relationType = OBJECT_VIEW;</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineNoCov">          0 :         if (stmtCopy-&gt;renameType == OBJECT_TABLE)</span></a>
+<a name="87"><span class="lineNum">      87 </span>            :         {</a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineNoCov">          0 :             stmtCopy-&gt;renameType = OBJECT_VIEW;</span></a>
+<a name="89"><span class="lineNum">      89 </span>            :         }</a>
+<a name="90"><span class="lineNum">      90 </span>            : </a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineNoCov">          0 :         return PreprocessRenameViewStmt((Node *) stmtCopy, renameCommand,</span></a>
+<a name="92"><span class="lineNum">      92 </span>            :                                         processUtilityContext);</a>
+<a name="93"><span class="lineNum">      93 </span>            :     }</a>
+<a name="94"><span class="lineNum">      94 </span>            : </a>
+<a name="95"><span class="lineNum">      95 </span>            :     /* we have no planning to do unless the table is distributed */</a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineNoCov">          0 :     switch (renameStmt-&gt;renameType)</span></a>
+<a name="97"><span class="lineNum">      97 </span>            :     {</a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 :         case OBJECT_TABLE:</span></a>
+<a name="99"><span class="lineNum">      99 </span>            :         case OBJECT_FOREIGN_TABLE:</a>
+<a name="100"><span class="lineNum">     100 </span>            :         case OBJECT_COLUMN:</a>
+<a name="101"><span class="lineNum">     101 </span>            :         case OBJECT_TABCONSTRAINT:</a>
+<a name="102"><span class="lineNum">     102 </span>            :         case OBJECT_POLICY:</a>
+<a name="103"><span class="lineNum">     103 </span>            :         {</a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineNoCov">          0 :             if (relKind == RELKIND_INDEX ||</span></a>
+<a name="105"><span class="lineNum">     105 </span>            :                 relKind == RELKIND_PARTITIONED_INDEX)</a>
+<a name="106"><span class="lineNum">     106 </span>            :             {</a>
+<a name="107"><span class="lineNum">     107 </span>            :                 /*</a>
+<a name="108"><span class="lineNum">     108 </span>            :                  * Although weird, postgres allows ALTER TABLE .. RENAME command</a>
+<a name="109"><span class="lineNum">     109 </span>            :                  * on indexes. We don't want to break non-distributed tables,</a>
+<a name="110"><span class="lineNum">     110 </span>            :                  * so allow.</a>
+<a name="111"><span class="lineNum">     111 </span>            :                  */</a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineNoCov">          0 :                 tableRelationId = IndexGetRelation(objectRelationId, false);</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineNoCov">          0 :                 break;</span></a>
+<a name="114"><span class="lineNum">     114 </span>            :             }</a>
+<a name="115"><span class="lineNum">     115 </span>            : </a>
+<a name="116"><span class="lineNum">     116 </span>            :             /* the target object is our tableRelationId. */</a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineNoCov">          0 :             tableRelationId = objectRelationId;</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineNoCov">          0 :             break;</span></a>
+<a name="119"><span class="lineNum">     119 </span>            :         }</a>
+<a name="120"><span class="lineNum">     120 </span>            : </a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :         case OBJECT_INDEX:</span></a>
+<a name="122"><span class="lineNum">     122 </span>            :         {</a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineNoCov">          0 :             if (relKind == RELKIND_RELATION ||</span></a>
+<a name="124"><span class="lineNum">     124 </span>            :                 relKind == RELKIND_PARTITIONED_TABLE)</a>
+<a name="125"><span class="lineNum">     125 </span>            :             {</a>
+<a name="126"><span class="lineNum">     126 </span>            :                 /*</a>
+<a name="127"><span class="lineNum">     127 </span>            :                  * Although weird, postgres allows ALTER INDEX .. RENAME command</a>
+<a name="128"><span class="lineNum">     128 </span>            :                  * on tables. We don't want to break non-distributed tables,</a>
+<a name="129"><span class="lineNum">     129 </span>            :                  * so allow.</a>
+<a name="130"><span class="lineNum">     130 </span>            :                  * Because of the weird syntax, we locked with wrong level, so relock</a>
+<a name="131"><span class="lineNum">     131 </span>            :                  * the relation to acquire true level of lock. Same logic</a>
+<a name="132"><span class="lineNum">     132 </span>            :                  * can be found in the function RenameRelation(RenameStmt) at tablecmds.c</a>
+<a name="133"><span class="lineNum">     133 </span>            :                  */</a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineNoCov">          0 :                 UnlockRelationOid(objectRelationId, lockmode);</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineNoCov">          0 :                 objectRelationId = RangeVarGetRelid(renameStmt-&gt;relation,</span></a>
+<a name="136"><span class="lineNum">     136 </span>            :                                                     AccessExclusiveLock,</a>
+<a name="137"><span class="lineNum">     137 </span>            :                                                     renameStmt-&gt;missing_ok);</a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 :                 tableRelationId = objectRelationId;</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineNoCov">          0 :                 break;</span></a>
+<a name="140"><span class="lineNum">     140 </span>            :             }</a>
+<a name="141"><span class="lineNum">     141 </span>            : </a>
+<a name="142"><span class="lineNum">     142 </span>            :             /*</a>
+<a name="143"><span class="lineNum">     143 </span>            :              * here, objRelationId points to the index relation entry, and we</a>
+<a name="144"><span class="lineNum">     144 </span>            :              * are interested into the entry of the table on which the index is</a>
+<a name="145"><span class="lineNum">     145 </span>            :              * defined.</a>
+<a name="146"><span class="lineNum">     146 </span>            :              */</a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineNoCov">          0 :             tableRelationId = IndexGetRelation(objectRelationId, false);</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 :             break;</span></a>
+<a name="149"><span class="lineNum">     149 </span>            :         }</a>
+<a name="150"><span class="lineNum">     150 </span>            : </a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineNoCov">          0 :         default:</span></a>
+<a name="152"><span class="lineNum">     152 </span>            : </a>
+<a name="153"><span class="lineNum">     153 </span>            :             /*</a>
+<a name="154"><span class="lineNum">     154 </span>            :              * Nodes that are not supported by Citus: we pass-through to the</a>
+<a name="155"><span class="lineNum">     155 </span>            :              * main PostgreSQL executor. Any Citus-supported RenameStmt</a>
+<a name="156"><span class="lineNum">     156 </span>            :              * renameType must appear above in the switch, explicitly.</a>
+<a name="157"><span class="lineNum">     157 </span>            :              */</a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineNoCov">          0 :             return NIL;</span></a>
+<a name="159"><span class="lineNum">     159 </span>            :     }</a>
+<a name="160"><span class="lineNum">     160 </span>            : </a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :     bool isCitusRelation = IsCitusTable(tableRelationId);</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineNoCov">          0 :     if (!isCitusRelation)</span></a>
+<a name="163"><span class="lineNum">     163 </span>            :     {</a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineNoCov">          0 :         return NIL;</span></a>
+<a name="165"><span class="lineNum">     165 </span>            :     }</a>
+<a name="166"><span class="lineNum">     166 </span>            : </a>
+<a name="167"><span class="lineNum">     167 </span>            :     /*</a>
+<a name="168"><span class="lineNum">     168 </span>            :      * We might ERROR out on some commands, but only for Citus tables.</a>
+<a name="169"><span class="lineNum">     169 </span>            :      * That's why this test comes this late in the function.</a>
+<a name="170"><span class="lineNum">     170 </span>            :      */</a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineNoCov">          0 :     ErrorIfUnsupportedRenameStmt(renameStmt);</span></a>
+<a name="172"><span class="lineNum">     172 </span>            : </a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineNoCov">          0 :     if (renameStmt-&gt;renameType == OBJECT_TABLE ||</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineNoCov">          0 :         renameStmt-&gt;renameType == OBJECT_FOREIGN_TABLE)</span></a>
+<a name="175"><span class="lineNum">     175 </span>            :     {</a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineNoCov">          0 :         SwitchToSequentialAndLocalExecutionIfRelationNameTooLong(tableRelationId,</span></a>
+<a name="177"><span class="lineNum">     177 </span>            :                                                                  renameStmt-&gt;newname);</a>
+<a name="178"><span class="lineNum">     178 </span>            :     }</a>
+<a name="179"><span class="lineNum">     179 </span>            : </a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineNoCov">          0 :     DDLJob *ddlJob = palloc0(sizeof(DDLJob));</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineNoCov">          0 :     ObjectAddressSet(ddlJob-&gt;targetObjectAddress, RelationRelationId, tableRelationId);</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 :     ddlJob-&gt;metadataSyncCommand = renameCommand;</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineNoCov">          0 :     ddlJob-&gt;taskList = DDLTaskList(tableRelationId, renameCommand);</span></a>
+<a name="184"><span class="lineNum">     184 </span>            : </a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineNoCov">          0 :     return list_make1(ddlJob);</span></a>
+<a name="186"><span class="lineNum">     186 </span>            : }</a>
+<a name="187"><span class="lineNum">     187 </span>            : </a>
+<a name="188"><span class="lineNum">     188 </span>            : </a>
+<a name="189"><span class="lineNum">     189 </span>            : /*</a>
+<a name="190"><span class="lineNum">     190 </span>            :  * ErrorIfUnsupportedRenameStmt errors out if the corresponding rename statement</a>
+<a name="191"><span class="lineNum">     191 </span>            :  * operates on any part of a distributed table other than a column.</a>
+<a name="192"><span class="lineNum">     192 </span>            :  *</a>
+<a name="193"><span class="lineNum">     193 </span>            :  * Note: This function handles RenameStmt applied to relations handed by Citus.</a>
+<a name="194"><span class="lineNum">     194 </span>            :  * At the moment of writing this comment, it could be either tables or indexes.</a>
+<a name="195"><span class="lineNum">     195 </span>            :  */</a>
+<a name="196"><span class="lineNum">     196 </span>            : void</a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineNoCov">          0 : ErrorIfUnsupportedRenameStmt(RenameStmt *renameStmt)</span></a>
+<a name="198"><span class="lineNum">     198 </span>            : {</a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineNoCov">          0 :     if (IsAlterTableRenameStmt(renameStmt) &amp;&amp;</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineNoCov">          0 :         renameStmt-&gt;renameType == OBJECT_TABCONSTRAINT)</span></a>
+<a name="201"><span class="lineNum">     201 </span>            :     {</a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineNoCov">          0 :         ereport(ERROR, (errcode(ERRCODE_FEATURE_NOT_SUPPORTED),</span></a>
+<a name="203"><span class="lineNum">     203 </span>            :                         errmsg(&quot;renaming constraints belonging to distributed tables is &quot;</a>
+<a name="204"><span class="lineNum">     204 </span>            :                                &quot;currently unsupported&quot;)));</a>
+<a name="205"><span class="lineNum">     205 </span>            :     }</a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="207"><span class="lineNum">     207 </span>            : </a>
+<a name="208"><span class="lineNum">     208 </span>            : </a>
+<a name="209"><span class="lineNum">     209 </span>            : /*</a>
+<a name="210"><span class="lineNum">     210 </span>            :  * PreprocessRenameAttributeStmt called for RenameStmt's that are targetting an attribute eg.</a>
+<a name="211"><span class="lineNum">     211 </span>            :  * type attributes. Based on the relation type the attribute gets renamed it dispatches to</a>
+<a name="212"><span class="lineNum">     212 </span>            :  * a specialized implementation if present, otherwise return an empty list for its DDLJobs</a>
+<a name="213"><span class="lineNum">     213 </span>            :  */</a>
+<a name="214"><span class="lineNum">     214 </span>            : List *</a>
+<a name="215"><span class="lineNum">     215 </span><span class="lineNoCov">          0 : PreprocessRenameAttributeStmt(Node *node, const char *queryString,</span></a>
+<a name="216"><span class="lineNum">     216 </span>            :                               ProcessUtilityContext processUtilityContext)</a>
+<a name="217"><span class="lineNum">     217 </span>            : {</a>
+<a name="218"><span class="lineNum">     218 </span><span class="lineNoCov">          0 :     RenameStmt *stmt = castNode(RenameStmt, node);</span></a>
+<a name="219"><span class="lineNum">     219 </span>            :     Assert(stmt-&gt;renameType == OBJECT_ATTRIBUTE);</a>
+<a name="220"><span class="lineNum">     220 </span>            : </a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineNoCov">          0 :     switch (stmt-&gt;relationType)</span></a>
+<a name="222"><span class="lineNum">     222 </span>            :     {</a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineNoCov">          0 :         case OBJECT_TYPE:</span></a>
+<a name="224"><span class="lineNum">     224 </span>            :         {</a>
+<a name="225"><span class="lineNum">     225 </span><span class="lineNoCov">          0 :             return PreprocessRenameTypeAttributeStmt(node, queryString,</span></a>
+<a name="226"><span class="lineNum">     226 </span>            :                                                      processUtilityContext);</a>
+<a name="227"><span class="lineNum">     227 </span>            :         }</a>
+<a name="228"><span class="lineNum">     228 </span>            : </a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineNoCov">          0 :         default:</span></a>
+<a name="230"><span class="lineNum">     230 </span>            :         {</a>
+<a name="231"><span class="lineNum">     231 </span>            :             /* unsupported relation for attribute rename, do nothing */</a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineNoCov">          0 :             return NIL;</span></a>
+<a name="233"><span class="lineNum">     233 </span>            :         }</a>
+<a name="234"><span class="lineNum">     234 </span>            :     }</a>
+<a name="235"><span class="lineNum">     235 </span>            : }</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/multi_logical_planner.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - multi_logical_planner.c<span style="font-size: 80%;"> (<a href="multi_logical_planner.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">564</td>
+            <td class="headerCovTableEntry">780</td>
+            <td class="headerCovTableEntryLo">72.3 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">58</td>
+            <td class="headerCovTableEntry">66</td>
+            <td class="headerCovTableEntryMed">87.9 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="multi_logical_planner.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1538">AddMultiCollectNodes</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2265">ApplyCartesianProduct</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2043">ApplyCartesianProductReferenceJoin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2206">ApplyDualPartitionJoin</a></td>
+              <td class="coverFnHi">30</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1950">ApplyJoinRule</a></td>
+              <td class="coverFnHi">48</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2064">ApplyLocalJoin</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2021">ApplyReferenceJoin</a></td>
+              <td class="coverFnHi">14</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2104">ApplySingleHashPartitionJoin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2124">ApplySinglePartitionJoin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2085">ApplySingleRangePartitionJoin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1841">BinaryOperator</a></td>
+              <td class="coverFnHi">43324</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1776">ChildNode</a></td>
+              <td class="coverFnHi">25090</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1620">CollectNodeForTable</a></td>
+              <td class="coverFnHi">1632</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#470">CompositeFieldRecursive</a></td>
+              <td class="coverFnHi">7</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#732">ContainsReadIntermediateResultArrayFunction</a></td>
+              <td class="coverFnHi">10613</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#720">ContainsReadIntermediateResultFunction</a></td>
+              <td class="coverFnHi">18243</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#860">DeferErrorIfQueryNotSupported</a></td>
+              <td class="coverFnHi">3158</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1246">DeferErrorIfUnsupportedClause</a></td>
+              <td class="coverFnHi">3168</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1058">DeferErrorIfUnsupportedSubqueryRepartition</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1012">ErrorHintRequired</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1314">ExtractFromExpressionWalker</a></td>
+              <td class="coverFnHi">13420</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#830">FindIntermediateResultIdIfExists</a></td>
+              <td class="coverFnHi">9630</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#173">FindNodeMatchingCheckFunction</a></td>
+              <td class="coverFnHi">1930298</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#292">FindNodeMatchingCheckFunctionInRangeTableList</a></td>
+              <td class="coverFnHi">57830</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1886">FindNodesOfType</a></td>
+              <td class="coverFnHi">163612</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#400">FullCompositeFieldList</a></td>
+              <td class="coverFnHi">475</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1785">GrandChildNode</a></td>
+              <td class="coverFnHi">60</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1139">HasComplexRangeTableType</a></td>
+              <td class="coverFnHi">3158</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#974">HasUnsupportedJoinWalker</a></td>
+              <td class="coverFnHi">36735</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#788">IsCitusExtraDataContainerFunc</a></td>
+              <td class="coverFnHi">6656</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#765">IsCitusExtraDataContainerRelation</a></td>
+              <td class="coverFnHi">2212</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#332">IsCitusTableRTE</a></td>
+              <td class="coverFnHi">5218</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#344">IsDistributedOrReferenceTableRTE</a></td>
+              <td class="coverFnHi">245707</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#362">IsDistributedTableRTE</a></td>
+              <td class="coverFnHi">318152</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#799">IsFunctionWithOid</a></td>
+              <td class="coverFnHi">234641</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#819">IsGroupingFunc</a></td>
+              <td class="coverFnHi">188591</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1399">IsJoinClause</a></td>
+              <td class="coverFnHi">444</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#754">IsReadIntermediateResultArrayFunction</a></td>
+              <td class="coverFnHi">54677</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#743">IsReadIntermediateResultFunction</a></td>
+              <td class="coverFnHi">173308</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#374">IsReferenceTableRTE</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1683">IsSelectClause</a></td>
+              <td class="coverFnHi">216</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#387">IsTableWithDistKeyRTE</a></td>
+              <td class="coverFnHi">2009</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1270">JoinClauseList</a></td>
+              <td class="coverFnHi">1758</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1989">JoinRuleApplyFunction</a></td>
+              <td class="coverFnHi">48</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1743">MultiExtendedOpNode</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1570">MultiJoinTree</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#142">MultiLogicalPlanCreate</a></td>
+              <td class="coverFnHi">2540</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#578">MultiNodeTree</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1719">MultiProjectNode</a></td>
+              <td class="coverFnHi">2202</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1651">MultiSelectNode</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1506">MultiTableNodeList</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#304">NodeTryGetRteRelid</a></td>
+              <td class="coverFnHi">571086</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#2284">OperatorImplementsEquality</a></td>
+              <td class="coverFnHi">327552</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1859">OutputTableIdList</a></td>
+              <td class="coverFnHi">4236</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1767">ParentNode</a></td>
+              <td class="coverFnHi">29632</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1223">QualifierList</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1796">SetChild</a></td>
+              <td class="coverFnHi">25850</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1805">SetLeftChild</a></td>
+              <td class="coverFnHi">196</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1814">SetRightChild</a></td>
+              <td class="coverFnHi">196</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#525">SubqueryEntryList</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1437">TableEntryList</a></td>
+              <td class="coverFnHi">618</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#205">TargetListOnPartitionColumn</a></td>
+              <td class="coverFnHi">482</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1823">UnaryOperator</a></td>
+              <td class="coverFnHi">194328</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1473">UsedTableEntryList</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1203">WhereClauseList</a></td>
+              <td class="coverFnHi">1584</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_logical_planner.c.gcov.html#1931">pull_var_clause_default</a></td>
+              <td class="coverFnHi">12104</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

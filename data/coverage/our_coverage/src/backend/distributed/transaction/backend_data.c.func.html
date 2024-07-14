@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/transaction/backend_data.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/transaction</a> - backend_data.c<span style="font-size: 80%;"> (<a href="backend_data.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">231</td>
+            <td class="headerCovTableEntry">431</td>
+            <td class="headerCovTableEntryLo">53.6 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">39</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryLo">72.2 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><a href="backend_data.c.func-sort-c.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></a></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1273">ActiveDistributedTransactionNumbers</a></td>
+              <td class="coverFnHi">1</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#854">AssignDistributedTransactionId</a></td>
+              <td class="coverFnHi">1015</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#896">AssignGlobalPID</a></td>
+              <td class="coverFnHi">600</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#540">BackendManagementShmemInit</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#608">BackendManagementShmemSize</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1005">CalculateGlobalPID</a></td>
+              <td class="coverFnHi">160</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1197">CancelTransactionDueToDeadlock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1159">CurrentDistributedTransactionNumber</a></td>
+              <td class="coverFnHi">177</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1366">DecrementExternalClientBackendCounter</a></td>
+              <td class="coverFnHi">14</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1451">DetermineCitusBackendType</a></td>
+              <td class="coverFnHi">2795</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1078">ExtractGlobalPID</a></td>
+              <td class="coverFnHi">4634</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1123">ExtractNodeIdFromGlobalPID</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1147">ExtractProcessIdFromGlobalPID</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1025">GenerateGlobalPID</a></td>
+              <td class="coverFnHi">160</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1173">GetBackendDataForProc</a></td>
+              <td class="coverFnHi">27713</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#824">GetCurrentDistributedTransactionId</a></td>
+              <td class="coverFnHi">26730</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1340">GetExternalClientBackendCount</a></td>
+              <td class="coverFnHi">973</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#969">GetGlobalPID</a></td>
+              <td class="coverFnHi">33</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1329">GetMyProcLocalTransactionId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1354">IncrementExternalClientBackendCounter</a></td>
+              <td class="coverFnHi">14</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#687">InitializeBackendData</a></td>
+              <td class="coverFnHi">1996</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#518">InitializeBackendManagement</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1393">IsCitusInternalBackend</a></td>
+              <td class="coverFnHi">12465</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1409">IsCitusRunCommandBackend</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1437">IsCitusShardTransferBackend</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1421">IsExternalClientBackend</a></td>
+              <td class="coverFnHi">3395</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1377">IsRebalancerInternalBackend</a></td>
+              <td class="coverFnHi">2845</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#799">LockBackendSharedMemory</a></td>
+              <td class="coverFnHi">1462</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1240">MyBackendGotCancelledDueToDeadlock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#773">SetActiveMyBackend</a></td>
+              <td class="coverFnHi">1847</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#935">SetBackendDataDatabaseId</a></td>
+              <td class="coverFnHi">600</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#953">SetBackendDataGlobalPID</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#376">StoreAllActiveTransactions</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#632">TotalProcCount</a></td>
+              <td class="coverFnHi">75</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#731">UnSetDistributedTransactionId</a></td>
+              <td class="coverFnHi">11950</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#753">UnSetGlobalPID</a></td>
+              <td class="coverFnHi">1847</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#810">UnlockBackendSharedMemory</a></td>
+              <td class="coverFnHi">1462</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#496">UserHasPermissionToViewStatsOf</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#138">assign_distributed_transaction_id</a></td>
+              <td class="coverFnHi">1245</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1036">citus_backend_gpid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#989">citus_calculate_gpid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1048">citus_nodeid_for_gpid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#1063">citus_pid_for_gpid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#358">get_all_active_transactions</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#189">get_current_transaction_id</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#248">get_global_active_transactions</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#118">pg_finfo_assign_distributed_transaction_id</a></td>
+              <td class="coverFnHi">442</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#123">pg_finfo_citus_backend_gpid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#122">pg_finfo_citus_calculate_gpid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#124">pg_finfo_citus_nodeid_for_gpid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#125">pg_finfo_citus_pid_for_gpid</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#121">pg_finfo_get_all_active_transactions</a></td>
+              <td class="coverFnHi">12</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#119">pg_finfo_get_current_transaction_id</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="backend_data.c.gcov.html#120">pg_finfo_get_global_active_transactions</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

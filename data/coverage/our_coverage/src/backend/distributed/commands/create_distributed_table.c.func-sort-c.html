@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/commands/create_distributed_table.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/commands</a> - create_distributed_table.c<span style="font-size: 80%;"> (<a href="create_distributed_table.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">338</td>
+            <td class="headerCovTableEntry">779</td>
+            <td class="headerCovTableEntryLo">43.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 14:56:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">38</td>
+            <td class="headerCovTableEntry">59</td>
+            <td class="headerCovTableEntryLo">64.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="create_distributed_table.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#719">AcquireCreateDistributedTableConcurrentlyLock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1741">AlterSequenceType</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1390">ConvertCitusLocalTableToTableType</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#381">CreateDistributedTableConcurrently</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1066">CreateSingleShardTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1917">CreateSingleShardTableShard</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#693">EnsureColocateWithTableIsValid</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2336">EnsureDistributableTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#672">EnsureForeignKeysForDistributedTableConcurrently</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2316">EnsureLocalTableEmpty</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1697">EnsureSequenceTypeSupported</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#856">HashSplitPointsForShardCount</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#830">HashSplitPointsForShardList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#906">RoundRobinWorkerNodeList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#744">SendAddLocalTableToMetadataCommandOutsideTransaction</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#776">WarnIfTableHaveNoReplicaIdentity</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#886">WorkerNodesForShardList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#318">create_distributed_table_concurrently</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2855">is_valid_numeric_typmod</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#207">master_create_distributed_table</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2868">numeric_typmod_scale</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#197">pg_finfo_create_distributed_table_concurrently</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#196">pg_finfo_master_create_distributed_table</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#199">pg_finfo_create_reference_table</a></td>
+              <td class="coverFnHi">4</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#198">pg_finfo_create_distributed_table</a></td>
+              <td class="coverFnHi">7</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1044">CreateReferenceTable</a></td>
+              <td class="coverFnHi">28</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#929">create_reference_table</a></td>
+              <td class="coverFnHi">28</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2522">CanUseExclusiveConnections</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#993">CreateDistributedTable</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1867">CreateHashDistributedTableShards</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2903">DistributionColumnUsesGeneratedStoredColumn</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2879">DistributionColumnUsesNumericColumnNegativeScale</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2446">SupportFunctionForColumn</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#219">create_distributed_table</a></td>
+              <td class="coverFnHi">50</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1964">ColocationIdForNewTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2680">CopyFromLocalTableIntoDistTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2638">CopyLocalDataIntoShards</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1106">CreateCitusTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2586">CreateTruncateTrigger</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2767">DoCopyFromLocalTableIntoShards</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#947">EnsureCitusTableCanBeCreated</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1781">EnsureDistributedSequencesHaveOneType</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2269">EnsureLocalTableEmptyIfNecessary</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2078">EnsureRelationCanBeDistributed</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#977">EnsureRelationExists</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1766">EnsureRelationHasCompatibleSequenceTypes</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2377">EnsureRelationHasNoTriggers</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2356">EnsureTableNotDistributed</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2923">ErrorIfForeignTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2252">ErrorIfTableIsACatalogTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2237">ErrorIfTemporaryTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1665">PropagatePrerequisiteObjectsForDistributedTable</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2287">ShouldLocalTableBeEmpty</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2478">TableEmpty</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2822">TupleDescColumnNameList</a></td>
+              <td class="coverFnHi">78</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1833">DecideDistTableReplicationModel</a></td>
+              <td class="coverFnHi">100</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#1589">DecideCitusTableParams</a></td>
+              <td class="coverFnHi">156</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2401">LookupDistributionMethod</a></td>
+              <td class="coverFnHi">254</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="create_distributed_table.c.gcov.html#2616">RegularTable</a></td>
+              <td class="coverFnHi">908</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

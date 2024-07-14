@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/operations/shard_rebalancer.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/operations</a> - shard_rebalancer.c<span style="font-size: 80%;"> (<a href="shard_rebalancer.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">51</td>
+            <td class="headerCovTableEntry">1163</td>
+            <td class="headerCovTableEntryLo">4.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 15:56:47</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">84</td>
+            <td class="headerCovTableEntryLo">20.2 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="shard_rebalancer.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#776">AcquirePlacementColocationLock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#742">AcquireRebalanceColocationLock</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1798">AddToWorkerShardIdSet</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#420">BigIntArrayDatumContains</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1421">BuildShardSizesHash</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1594">BuildWorkerShardStatisticsHash</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2602">CalculateUtilization</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2762">CompareDisallowedPlacementAsc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2775">CompareDisallowedPlacementDesc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2637">CompareNodeFillStateAsc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2676">CompareNodeFillStateDesc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2687">CompareShardCostAsc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2714">CompareShardCostDesc</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1946">ErrorOnConcurrentRebalance</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#845">ExecutePlacementUpdates</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2345">ExecuteRebalancerCommandInSeparateTransaction</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2786">FindAllowedTargetFillState</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2903">FindAndMoveShardCost</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2617">FindFillStateForPlacement</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#438">FullShardPlacementList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2009">GenerateTaskMoveDependencyList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#705">GetColocatedRebalanceSteps</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1971">GetColocationId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1757">GetMovedShardIdsByWorker</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#498">GetRebalanceSteps</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1083">GetRebalanceStrategy</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#810">GetResponsiveWorkerList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2380">GetSetCommandListForNewConnections</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#647">GetShardCost</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1640">GetShardStatistics</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2527">InitRebalanceState</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1989">InitializeShardMoveDependencies</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2824">MoveShardCost</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2726">MoveShardsAwayFromDisallowedNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#627">NodeCapacity</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1831">NonColocatedDistRelationIdList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3349">PlacementsHashCompare</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3311">PlacementsHashEnter</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3288">PlacementsHashFind</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3390">PlacementsHashHashCode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3330">PlacementsHashRemove</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2418">RebalancePlacementUpdates</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1884">RebalanceTableShards</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2104">RebalanceTableShardsBackground</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3086">ReplicationPlacementUpdates</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#895">SetupRebalanceMonitor</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3228">ShardActivePlacementCount</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#606">ShardAllowedOnNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3254">ShardPlacementsListToHash</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#486">SortedActiveWorkers</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3435">UpdateColocatedShardPlacementProgress</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2074">UpdateShardMoveDependencies</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#2260">UpdateShardPlacement</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1572">WorkerLSN</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3409">WorkerNodeListContains</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1542">WorkerShardLSN</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1512">WorkerShardSize</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1139">citus_drain_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1002">citus_rebalance_start</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1039">citus_rebalance_stop</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1060">citus_rebalance_wait</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#668">citus_shard_cost_by_disk_size</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1325">get_rebalance_progress</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1245">get_rebalance_table_shards_plan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1222">master_drain_node</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#948">rebalance_table_shards</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#1183">replicate_table_shards</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3480">pg_dist_rebalance_strategy_enterprise_check</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#311">pg_finfo_citus_drain_node</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#316">pg_finfo_citus_rebalance_start</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#317">pg_finfo_citus_rebalance_stop</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#318">pg_finfo_citus_rebalance_wait</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#313">pg_finfo_citus_shard_cost_by_disk_size</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#308">pg_finfo_replicate_table_shards</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#314">pg_finfo_citus_validate_rebalance_strategy_functions</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#312">pg_finfo_master_drain_node</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#315">pg_finfo_pg_dist_rebalance_strategy_enterprise_check</a></td>
+              <td class="coverFnHi">6</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#307">pg_finfo_rebalance_table_shards</a></td>
+              <td class="coverFnHi">9</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#310">pg_finfo_get_rebalance_progress</a></td>
+              <td class="coverFnHi">12</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#309">pg_finfo_get_rebalance_table_shards_plan</a></td>
+              <td class="coverFnHi">12</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3555">EnsureNodeCapacityUDF</a></td>
+              <td class="coverFnHi">15</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3594">EnsureShardAllowedOnNodeUDF</a></td>
+              <td class="coverFnHi">15</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3516">EnsureShardCostUDF</a></td>
+              <td class="coverFnHi">15</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="shard_rebalancer.c.gcov.html#3499">citus_validate_rebalance_strategy_functions</a></td>
+              <td class="coverFnHi">15</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

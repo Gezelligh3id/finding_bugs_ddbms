@@ -1,0 +1,548 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Citus 12.1.4 - src/backend/distributed/planner/multi_physical_planner.c - functions</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">src/backend/distributed/planner</a> - multi_physical_planner.c<span style="font-size: 80%;"> (<a href="multi_physical_planner.c.gcov.html">source</a> / functions)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Citus 12.1.4</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2086</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2024-07-14 15:56:47</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">117</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+</td>
+            <td></td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <center>
+  <table width="60%" cellpadding=1 cellspacing=1 border=0>
+    <tr><td><br></td></tr>
+    <tr>
+      <td width="80%" class="tableHead">Function Name <span class="tableHeadSort"><a href="multi_physical_planner.c.func.html"><img src="../../../../updown.png" width=10 height=14 alt="Sort by function name" title="Sort by function name" border=0></a></span></td>
+      <td width="20%" class="tableHead">Hit count <span class="tableHeadSort"><img src="../../../../glass.png" width=10 height=14 alt="Sort by hit count" title="Sort by hit count" border=0></span></td>
+    </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5341">ActiveShardPlacementLists</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#934">AddAnyValueAggregates</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2945">AdjustColumnOldAttributes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5660">AdjustImproperForDeparseNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2788">AnchorRangeTableId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2882">AnchorRangeTableIdList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4205">AnchorShardId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4614">ArrayObjectToString</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5009">AssignAnchorShardTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5572">AssignDataFetchDependencies</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5480">AssignDualHashTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4781">AssignTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2856">BaseRangeTableIdList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#704">BaseRangeTableList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3224">BinaryOpExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3064">BuildBaseConstraint</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1932">BuildJob</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#541">BuildJobQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#300">BuildJobTree</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2047">BuildJobTreeTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1951">BuildMapMergeJob</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4049">BuildRelationShardList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1519">BuildSubqueryJobQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3768">CheckJoinBetweenColumns</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1839">ChildNodeList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2568">CoPartitionedTables</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5401">CompareGroupShardPlacements</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5374">CompareShardPlacements</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5309">CompareTasksByShardId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5553">CompareTasksByTaskId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1431">ConstructCallingRTE</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4030">CreateBasicTask</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4369">CreateMapQueryString</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#249">CreatePhysicalDistributedPlan</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3998">DataFetchTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2758">DependsOnHashPartitionJob</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#782">DerivedColumnNameList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#759">DerivedRangeTableEntry</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2343">ErrorIfUnsupportedShardDistribution</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1413">ExtractColumns</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1387">ExtractRangeTableId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3469">FetchEqualityAttrNumsForList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3442">FetchEqualityAttrNumsForRTE</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3522">FetchEqualityAttrNumsForRTEBoolExpr</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3500">FetchEqualityAttrNumsForRTEOpExpr</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4179">FetchTaskResultNameList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5455">FindDependentMergeTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3793">FindRangeTableFragmentsList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#513">FindTableNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5184">FirstReplicaAssignTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4105">FragmentAlias</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3317">FragmentCombinationList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3884">FragmentInterval</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3969">FragmentIntervalString</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4493">GenerateSyntheticShardIntervalArray</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1363">GetColumnOriginalIndexes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3202">GetOperatorByType</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5102">GreedyAssignTask</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5040">GreedyAssignTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4911">HasMergeTaskDependencies</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2025">HashPartitionCount</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5737">IsImproperForDeparseCoerceViaIONode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5722">IsImproperForDeparseRelabelTypeNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2303">IsInnerTableOfOuterJoin</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1772">JobForRangeTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1795">JobForTableIdList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3825">JoinPrunable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1280">JoinRangeTableEntry</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3560">JoinSequenceArray</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#450">LeftMostNode</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5433">LeftRotateList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3136">LookupOperatorByType</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3259">MakeInt4Column</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3083">MakeOpExpression</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4284">MapTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4652">MergeTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#277">ModifyLocalTableJob</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1727">NewColumnId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1691">NewTableId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3420">NodeIsRangeTblRefReferenceTable</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4341">PartitionColumnIndex</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4474">PartitionResultName</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4459">PartitionResultNamePrefix</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3711">PartitionedOnColumn</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4235">PruneSqlTaskDependencies</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1484">QueryFromList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1016">QueryGroupClauseList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1091">QueryJoinTree</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2173">QueryPushdownSqlTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2437">QueryPushdownTaskCreate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1053">QuerySelectClauseList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#811">QueryTargetList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5628">QueryTreeHasImproperForDeparseNodes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4538">RangeIntervalArrayWithNullBucket</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#480">RangePartitionJoinBaseRelationId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2968">RangeTableFragmentsList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2740">RelabelTypeToCollateExpr</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5247">ReorderAndAssignTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5204">RoundRobinAssignTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5228">RoundRobinReorder</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4562">RowModifyLevelForQuery</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1331">SetJoinRelatedColumnsCompat</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5540">SetPlacementNodeMetadata</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3906">ShardIntervalsOverlap</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3938">ShardIntervalsOverlapWithParams</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#2615">SqlTaskList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#844">TargetEntryList</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4981">TaskListDifference</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#5604">TaskListHighestTaskId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4958">TaskListMember</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4934">TasksEqual</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1881">UniqueJobId</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1643">UpdateAllColumnAttributes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#1662">UpdateColumnAttributes</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#3276">UpdateConstraint</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#4084">UpdateRangeTableAlias</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="multi_physical_planner.c.gcov.html#876">WrapUngroupedVarsInAnyValueAggregate</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+  </table>
+  <br>
+  </center>
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="https://github.com/linux-test-project/lcov" target="_parent">LCOV version 1.16</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
